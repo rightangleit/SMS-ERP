@@ -2,22 +2,22 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="../../../public/css/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap.min.css">
 	<!-- <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"> -->
-	<link rel="stylesheet" type="text/css" href="../../../css/bootstrap/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" type="text/css" href="../../../css/bootstrap/css/bootstrap-theme.css">
-	<link rel="stylesheet" type="text/css" href="../../../css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap-theme.css">
+	<link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
 	
-	<script type="text/javascript" src="../../../public/js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
 
   	
-  	<script type="text/javascript" src="../../../public/js/bootstrap.min.js"></script>
+  	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	
-	<link rel="stylesheet" type="text/css" href="../../../public/css/style1.css">
+	<link rel="stylesheet" type="text/css" href="/css/style1.css">
 	<meta name="viewport" content="width=device-width, 
 	initial-scale=1, maximum-scale=1">
   	
-  	<link rel="stylesheet" type="text/css" href="../../../public/css/animate.min.css">
+  	<link rel="stylesheet" type="text/css" href="/css/animate.min.css">
 </head>
 <body>
 	<div id="navbar" class="navbar navbar-default navbar-fixed-top navbar-inverse" 
@@ -30,7 +30,7 @@
 					 <span class="icon-bar"></span>
 					 <span class="icon-bar"></span>
 				</button> -->
-				<a href="dashboard.blade.php" class="navbar-brand">Admin Panel</a>
+				<a href="{{ url('dashboard') }}" class="navbar-brand">Admin Panel</a>
 				<p class="navp">XYZ HIGH SCHOOL</p>
 
 			</div>
@@ -65,11 +65,11 @@
 	    </div>
 	    <div class="collapse navbar-collapse" id="myNavbar">
 	      <ul class="nav navbar-nav">
-	        <li class="active"><a href="#section1">Dashboard</a></li>
+	        <li class="active"><a href="{{ url('dashboard') }}">Dashboard</a></li>
 			<li><a href="#section2">Student Information</a></li>
 			<li><a href="#section3">Student Attendance</a></li>
 			<li><a href="#section3">Bulk Sms</a></li>
-			<li><a href="insert_result.php">Result Processing</a></li>
+			<li><a href="#section3">Result Processing</a></li>
 			<li><a href="#section3">Teacher Login	</a></li>
 	      </ul>
 	    </div>
@@ -88,8 +88,8 @@
 							    type="button" data-toggle="dropdown">Student Information
 							    <span class="caret"></span></button>
 							    <ul class="dropdown-menu">
-							      <li><a href="stu_info_new.blade.php">New Student</a></li>
-							      <li><a href="show_info.blade.php">Show information</a></li>
+							      <li><a href="{{ url('stu_info_new') }}">New Student</a></li>
+							      <li><a href="{{ url('show_info') }}">Show information</a></li>
 							      
 							    </ul>
 						 	

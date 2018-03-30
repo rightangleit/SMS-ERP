@@ -2,22 +2,22 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="../../../public/css/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.min.css">
 	<!-- <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"> -->
-	<link rel="stylesheet" type="text/css" href="../../../css/bootstrap/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" type="text/css" href="../../../css/bootstrap/css/bootstrap-theme.css">
-	<link rel="stylesheet" type="text/css" href="../../../css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap-theme.css">
+	<link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
 	
-	<script type="text/javascript" src="../../../public/js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
 
   	
-  	<script type="text/javascript" src="../../../public/js/bootstrap.min.js"></script>
+  	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	
-	<link rel="stylesheet" type="text/css" href="../../../public/css/style1.css">
+	<link rel="stylesheet" type="text/css" href="/css/style1.css">
 	<meta name="viewport" content="width=device-width, 
 	initial-scale=1, maximum-scale=1">
   	
-  	<link rel="stylesheet" type="text/css" href="../../../public/css/animate.min.css">
+  	<link rel="stylesheet" type="text/css" href="/css/animate.min.css">
 
   	
   		<script type="text/javascript">
@@ -98,17 +98,9 @@
 							    type="button" data-toggle="dropdown">Student Information
 							    <span class="caret"></span></button>
 							    <ul class="dropdown-menu">
-							      <li><a href="#">All</a></li>
-							      <li><a href="#">Class One</a></li>
-							      <li><a href="#">Class Two</a></li>
-							      <li><a href="#">Class Three</a></li>
-							      <li><a href="#">Class Four</a></li>
-							      <li><a href="#">Class Five</a></li>
-							      <li><a href="#">Class Six</a></li>
-							      <li><a href="#">Class Seven</a></li>
-							      <li><a href="#">Class Eight</a></li>
-							      <li><a href="#">Class Nine</a></li>
-							      <li><a href="#">Class Ten</a></li>
+							      <li><a href="{{ url('stu_info_new') }}">New Student</a></li>
+							      <li><a href="{{ url('show_info') }}">Show information</a></li>
+							      
 							    </ul>
 						 	
 				        </li>

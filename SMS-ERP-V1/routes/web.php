@@ -15,20 +15,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('Admin.dashboard');
 });
 Route::get('/insert_result', function () {
-    return view('insert_result');
+    return view('Admin.insert_result');
 });
 Route::get('/search_result', function () {
-    return view('search_result');
+    return view('Admin.search_result');
 });
 Route::get('/show_info', function () {
-    return view('show_info');
+    return view('Admin.show_info');
 });
 Route::get('/show_result', function () {
-    return view('show_result');
+    return view('Admin.show_result');
 });
 Route::get('/stu_info_new', function () {
-    return view('stu_info_new');
+    return view('Admin.stu_info_new');
 });

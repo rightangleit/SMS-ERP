@@ -20,6 +20,7 @@
   	<link rel="stylesheet" type="text/css" href="/css/animate.min.css">
 </head>
 <body>
+	
 	<div id="navbar" class="navbar navbar-default navbar-fixed-top navbar-inverse" 
 	role="navigation">
 		<div class="container">
@@ -30,7 +31,7 @@
 					 <span class="icon-bar"></span>
 					 <span class="icon-bar"></span>
 				</button> -->
-				<a href="{{ url('dashboard') }}" class="navbar-brand">Admin Panel</a>
+				<a href="dashboard.blade.php" class="navbar-brand">Admin Panel</a>
 				<p class="navp">XYZ HIGH SCHOOL</p>
 
 			</div>
@@ -65,11 +66,11 @@
 	    </div>
 	    <div class="collapse navbar-collapse" id="myNavbar">
 	      <ul class="nav navbar-nav">
-	        <li class="active"><a href="{{ url('dashboard') }}">Dashboard</a></li>
+	        <li class="active"><a href="#section1">Dashboard</a></li>
 			<li><a href="#section2">Student Information</a></li>
 			<li><a href="#section3">Student Attendance</a></li>
 			<li><a href="#section3">Bulk Sms</a></li>
-			<li><a href="#section3">Result Processing</a></li>
+			<li><a href="insert_result.php">Result Processing</a></li>
 			<li><a href="#section3">Teacher Login	</a></li>
 	      </ul>
 	    </div>
@@ -77,12 +78,10 @@
 </nav>
 
 	
-		<div class="container-fluid" style="background-color: #eee;">
+		<div class="container-fluid">
 			<div class="row content" >
 				<div class="col-sm-3 sidenav hidden-xs">
-
 					<ul class="nav nav-pills nav-stacked">
-						
 				        <li class="dropdown">
 
 				        	
@@ -90,8 +89,8 @@
 							    type="button" data-toggle="dropdown">Student Information
 							    <span class="caret"></span></button>
 							    <ul class="dropdown-menu">
-							      <li><a href="{{ url('stu_info_new') }}">New Student</a></li>
-							      <li><a href="{{ url('show_info') }}">Show information</a></li>
+							      <li><a href="stu_info_new.blade.php">New Student</a></li>
+							      <li><a href="show_info.blade.php">Show information</a></li>
 							      
 							    </ul>
 						 	
@@ -124,7 +123,7 @@
 							    <span class="caret"></span></button>
 							    <ul class="dropdown-menu">
 							      <li><a href="insert_result.blade.php">Insert Result</a></li>
-							      <li><a href="search_result.blade.php">Show Result</a></li>
+							      <li><a href="#">Show Result</a></li>
 							      <li><a href="#">Marksheet</a></li>
 							      <li><a href="#">Tabulation Sheet</a></li>
 							    </ul>
@@ -171,104 +170,3 @@
 				</div>
 				</div>
 				<br>
-					
-					<div class="col-sm-6 col-md-6" style=" height: 700px; margin-top: -480px; margin-left: 250px;">
-							<form class="form-horizontal" action="/action_page.php">
-							    <div class="form-group">
-							      <label class="control-label col-sm-2" for="email">Registration Number</label>
-							      <div class="col-sm-10">
-							        <input type="number" class="form-control" id="email" placeholder="Please Enter student's Registration number" name="email">
-							      </div>
-							    </div>
-							    <div class="form-group">
-							      <label class="control-label col-sm-2" for="pwd">Subject Code</label>
-							      	<div class="col-sm-10">
-							        <select class="selectpicker selectcode  multiselect-ui form-control" data-live-search="true" data-size="" show-menu-arrow searchable="Search here.." >
-							          <option disabled selected>
-							          	Choose Subject Code
-							          </option>
-									  <optgroup label="Class one" >
-									    <option>Bangla1</option>
-								 multiple	    <option>English2</option>
-									    <option>Math3</option>
-									  </optgroup>
-									  <optgroup label="Class Two">
-									    <option>Tent</option>
-									    <option>Flashlight</option>
-									    <option>Toilet Paper</option>
-									  </optgroup>
-									  <optgroup label="Class Three">
-									    <option>Bangla1</option>
-									    <option>English2</option>
-									    <option>Math3</option>
-									  </optgroup>
-									  <optgroup label="Class Four">
-									    <option>Tent</option>
-									    <option>Flashlight</option>
-									    <option>Toilet Paper</option>
-									  </optgroup>
-									  <optgroup label="Class Five">
-									    <option>Bangla1</option>
-									    <option>English2</option>
-									    <option>Math3</option>
-									  </optgroup>
-									  <optgroup label="Class Six">
-									    <option>Tent</option>
-									    <option>Flashlight</option>
-									    <option>Toilet Paper</option>
-									  </optgroup>
-									  <optgroup label="Class Seven">
-									    <option>Bangla1</option>
-									    <option>English2</option>
-									    <option>Math3</option>
-									  </optgroup>
-									  <optgroup label="Class Eight">
-									    <option>Tent</option>
-									    <option>Flashlight</option>
-									    <option>Toilet Paper</option>
-									  </optgroup>
-									  <optgroup label="Class Nine">
-									    <option>Bangla1</option>
-									    <option>English2</option>
-									    <option>Math3</option>
-									  </optgroup>
-									  <optgroup label="Class Ten">
-									    <option>Tent</option>
-									    <option>Flashlight</option>
-									    <option>Toilet Paper</option>
-									  </optgroup>
-									</select>
-									<label><input type="radio" name="remember"> Theroy</label>
-								    <label><input type="radio" name="remember"> Practical</label>
-									 
-							      </div>
-							    </div>
-							   
-							    <div class="form-group">
-							      <label class="control-label col-sm-2" for="pwd">Marks</label>
-							      <div class="col-sm-10">          
-							        <input type="number" class="form-control" id="pwd" placeholder="Enter Marks" name="pwd">
-							      </div>
-							    </div>
-							    <!-- <div class="form-group">        
-							      <div class="col-sm-offset-2 col-sm-10">
-							        <div class="checkbox">
-							          <label><input type="checkbox" name="remember"> Remember me</label>
-							        </div>
-							      </div>
-							    </div> -->
-							    <div class="form-group">        
-							      <div class="col-sm-offset-2 col-sm-10">
-							        <button type="submit" class="btn btn-default">Save</button>
-							      </div>
-							    </div>
-							</form>
-					</div>
-				
-
-				</div>
-			</div>
-		</div>
-	
-</body>
-</html>
