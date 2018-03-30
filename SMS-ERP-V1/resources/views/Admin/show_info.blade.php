@@ -55,7 +55,7 @@
 					 <span class="icon-bar"></span>
 					 <span class="icon-bar"></span>
 				</button> -->
-				<a href="dashboard.bladephp" class="navbar-brand">Admin Panel</a>
+				<a href="{{ url('dashboard') }}" class="navbar-brand">Admin Panel</a>
 				<p class="navp">XYZ HIGH SCHOOL</p>
 
 			</div>
@@ -90,7 +90,7 @@
 	    </div>
 	    <div class="collapse navbar-collapse" id="myNavbar">
 	      <ul class="nav navbar-nav">
-	        <li class="active"><a href="#section1">Dashboard</a></li>
+	        <li class="active"><a href="{{ url('dashboard') }}">Dashboard</a></li>
 			<li><a href="#section2">Student Information</a></li>
 			<li><a href="#section3">Student Attendance</a></li>
 			<li><a href="#section3">Bulk Sms</a></li>
