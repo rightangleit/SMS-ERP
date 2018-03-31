@@ -115,7 +115,7 @@
 							    type="button" data-toggle="dropdown">Student Information
 							    <span class="caret"></span></button>
 							    <ul class="dropdown-menu">
-							      <li><a href="{{ url('stu_info_new') }}">New Student</a></li>
+							      <li><a href="{{ url('stu_info_new/create') }}">New Student</a></li>
 							      <li><a href="{{ url('show_info') }}">Show information</a></li>
 							      
 							    </ul>
