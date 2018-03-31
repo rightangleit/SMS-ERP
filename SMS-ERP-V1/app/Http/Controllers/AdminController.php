@@ -36,6 +36,20 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
+        'spreaddhouse' => $request->get('spreaddhouse'),
+        'spreaddarea' => $request->get('spreaddarea'),
+        'spreaddpost' => $request->get('spreaddpost'),
+        'spreadddist' => $request->get('spreadddist'),
+        'spreaddstation'=>$request->get('spreaddstation'),
+        'spreadddpostal' => $request->get('spreadddpostal'),
+        'speraddvillage' => $request->get('speraddvillage'),
+        'speraddpost' => $request->get('speraddpost'),
+        'speraddstation' => $request->get('speraddstation'),
+        'speradddist' => $request->get('speradddist'),
+
+        $speradd='House NO :'.$spreadhouse.'Area Name :'.$spreadarea.'Post Office :'.$spreaddpost.'District :'.$spreadddist.'Police Station :'.$spreaddstation.'Postal Code :'.$spreadddpostal;
+        $spreadd ='Village :'.$speraddvillage.'Post Office :'.$speraddpost.'Police Station :'.$speraddstation.'District :'.$speraddstation
+
         $stu_info_new = new student([
           'fname' => $request->get('fname'),
           'lname' => $request->get('lname'),
@@ -49,15 +63,9 @@ class AdminController extends Controller
           'ssection' => $request->get('ssection'),
           'sgroup' => $request->get('sgroup'),
           'sshift' => $request->get('sshift'),
-          'spreaddhouse' => $request->get('spreaddhouse'),
-          'spreaddarea' => $request->get('spreaddarea'),
-          'spreaddpost' => $request->get('spreaddpost'),
-          'spreadddist' => $request->get('spreadddist'),
-          'spreadddpostal' => $request->get('spreadddpostal'),
-          'speraddvillage' => $request->get('speraddvillage'),
-          'speraddpostal' => $request->get('speraddpostal'),
-          'speraddstation' => $request->get('speraddstation'),
-          'speradddist' => $request->get('speradddist')
+          'speradd'=>$request->get($speradd),
+          'spreadd'=>$request->get($spreadd),
+          
 
         ]);
 

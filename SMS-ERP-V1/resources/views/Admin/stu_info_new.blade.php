@@ -460,7 +460,7 @@
 										</div>
 										<div class="form-group">
 											<label for="lname" class="control-label">Post Office:</label>
-											<input type="text" class="form-control" id="lname" placeholder="Post Office" data-error="Enter Your Last Name" required name="speraddpostal">
+											<input type="text" class="form-control" id="lname" placeholder="Post Office" data-error="Enter Your Last Name" required name="speraddpost">
 											<div class="help-block with-errors"></div>
 										</div>
 										<div class="form-group">
