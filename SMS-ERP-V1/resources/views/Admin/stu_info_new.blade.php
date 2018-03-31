@@ -2,25 +2,23 @@
 <html lang="{{ config('app.locale') }}">
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap/css/bootstrap.min.css')}}">
 	<!-- <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"> -->
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap-theme.css">
-	<link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="{{ asset('/css/bootstrap/css/bootstrap-theme.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('/css/bootstrap/css/bootstrap-theme.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('/css/font-awesome.min.css')}}">
 	
-	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script type="text/javascript" src="{{asset('/js/jquery.js')}}"></script>
 
   	
-  	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  	<script type="text/javascript" src="{{asset('/js/bootstrap.min.js')}}"></script>
 	
-	<link rel="stylesheet" type="text/css" href="/css/style1.css">
-
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="{{asset('/css/style1.css')}}">
 	<meta name="viewport" content="width=device-width, 
 	initial-scale=1, maximum-scale=1">
   	
-  	<link rel="stylesheet" type="text/css" href="/css/animate.min.css">
-  	<script src="/js/wow.min.js"></script>
+  	<link rel="stylesheet" type="text/css" href="{{asset('/css/animate.min.css')}}">
+  	<script src="{{asset('/js/wow.min.js')}}"></script>
     <script>
         new WOW().init();
     </script>
@@ -198,7 +196,7 @@
 
 					<!-- <h1 class="title">Personal Information</h1> -->
 					<div class="col-sm-12 col-md-12" id="row_1st_col" style="">
-							<form class="form-horizontal fixed" id="form-horizontal" method="post" action="{{url('#')}}">
+							<form class="form-horizontal fixed" id="form-horizontal" method="post" action="{{url('/stu_info_new')}}">
 								{{csrf_field()}}
 								<button type="submit" id="button1" name="submit" class="btn-lg btn-primary buttons" onClick="showTable('f1','f2','f3','h1')">Personal Information
 								</button>

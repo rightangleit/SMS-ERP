@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-/*Route::get('/dashboard', function () {
+Route::get('/dashboard', function () {
     return view('Admin.dashboard');
 });
 Route::get('/insert_result', function () {
@@ -23,13 +23,9 @@ Route::get('/insert_result', function () {
 Route::get('/search_result', function () {
     return view('Admin.search_result');
 });
-Route::get('/show_info', function () {
-    return view('Admin.show_info');
-});
+Route::get('/show_info', 'AdminController@index');
 Route::get('/show_result', function () {
     return view('Admin.show_result');
 });
-Route::get('/stu_info_new', function () {
-    return view('Admin.stu_info_new');
-});*/
-Route::resource('admin', 'AdminController');
+/*Route::get('/stu_info_new', 'AdminController@create');*/
+Route::resource('/stu_info_new', 'AdminController');

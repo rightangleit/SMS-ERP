@@ -12,10 +12,12 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
         $student = student::all()->toArray();
-        return view('admin.show_info',compact('student'));
+        $student = student::where('id',1)->get();
+        return view('Admin.show_info',compact('student'));
     }
 
     /**
@@ -51,6 +53,8 @@ class AdminController extends Controller
         $speradd='House NO :'.$spreaddhouse.','.'Area Name :'.$spreaddarea.','.'Post Office :'.$spreaddpost.','.'District :'.$speradddist.','.'Police Station :'.$spreaddstation.','.'Postal Code :'.$spreadddpostal;
         $spreadd ='Village :'.$speraddvillage.','.'Post Office :'.$speraddpost.','.'Police Station :'.$speraddstation.','.'District :'.$speraddstation;
 
+
+
         $stu_info_new = new student([
           'fname' => $request->get('fname'),
           'lname' => $request->get('lname'),
@@ -71,7 +75,7 @@ class AdminController extends Controller
         ]);
 
         $stu_info_new->save();
-        return redirect('/admin');
+        return redirect('stu_info_new/create');
     }
 
     /**
