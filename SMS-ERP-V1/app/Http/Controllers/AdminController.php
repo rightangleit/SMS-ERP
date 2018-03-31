@@ -48,7 +48,7 @@ class AdminController extends Controller
         $speraddstation= $request->get('speraddstation');
         $speradddist= $request->get('speradddist');
 
-        $speradd='House NO :'.$spreaddhouse.','.'Area Name :'.$spreaddarea.','.'Post Office :'.$spreaddpost.','.'District :'.$spreadddist.','.'Police Station :'.$spreaddstation.','.'Postal Code :'.$spreadddpostal;
+        $speradd='House NO :'.$spreaddhouse.','.'Area Name :'.$spreaddarea.','.'Post Office :'.$spreaddpost.','.'District :'.$speradddist.','.'Police Station :'.$spreaddstation.','.'Postal Code :'.$spreadddpostal;
         $spreadd ='Village :'.$speraddvillage.','.'Post Office :'.$speraddpost.','.'Police Station :'.$speraddstation.','.'District :'.$speraddstation;
 
         $stu_info_new = new student([
@@ -70,7 +70,7 @@ class AdminController extends Controller
 
         ]);
 
-        $insert=$stu_info_new->save();
+        $stu_info_new->save();
         return redirect('/admin');
     }
 
