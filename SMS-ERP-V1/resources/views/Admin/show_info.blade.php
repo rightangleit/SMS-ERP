@@ -259,19 +259,23 @@
 										      </tr>
 										    </thead>
 										    <tbody>
+										    
+         
+										      @foreach($student as $personal)
+
 										      <tr>
-										        <td>1</td>
-										        <td>Hasan</td>
-										        <td>Mahmud</td>
-										        <td>CSE 101</td>
-										        <td>C Programming</td>
-										        <td>85</td>
-										        <td>A+</td>
-										        <td>85%</td>
-										        <td>Pass</td>
+										        <td>{{$personal['id']}}</td>
+										        <td>{{$personal['fname']}}</td>
+										        <td>{{$personal['lname']}}</td>
+										        <td>{{$personal['gname']}}</td>
+										        <td>{{$personal['goccup']}}</td>
+										        <td>{{$personal['gphone']}}</td>
+										        <td>{{$personal['sphone']}}</td>
+										        <td>{{$personal['sdob']}}</td>
+										        <td>{{$personal['sblood']}}</td>
 										        <td><a href="#">Edit</a></td>
 										      </tr>
-										      
+										      @endforeach
 										    </tbody>
 									  </table>
 									
@@ -294,16 +298,22 @@
 										    </tr>
 										    </thead>
 										    <tbody>
+										      @foreach($student as $educational)
+
 										      <tr>
-										        <td>1</td>
-										        <td>Six</td>
-										        <td>A</td>
-										        <td>Science</td>
-										        <td>Morning</td>
+										        <td>{{$educational['id']}}</td>
+										        <td>{{$educational['sclass']}}</td>
+										        <td>{{$educational['ssection']}}</td>
+										        <td>{{$educational['sgroup']}}</td>
+										        <td>{{$educational['sshift']}}</td>
+										        
 										        <td><a href="#">Edit</a></td>
 										      </tr>
-										      
+										      @endforeach
 										    </tbody>
+										      
+										      
+										    
 									  </table>
 									
 
@@ -323,13 +333,17 @@
 										    </tr>
 										    </thead>
 										    <tbody>
+										      @foreach($student as $address)
+
 										      <tr>
-										        <td>1</td>
-										        <td>116 South Goran</td>
-										        <td>Patuakhali</td>
-										        <td><a href="#">Edit</a></td>
+										        <td>{{$address['id']}}</td>
+										        <td>{{$address['speradd']}}</td>
+										        <td>{{$address['spreadd']}}</td>
 										        
+										        
+										        <td><a href="#">Edit</a></td>
 										      </tr>
+										      @endforeach
 										      
 										    </tbody>
 									  </table>

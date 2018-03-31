@@ -14,7 +14,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        $student = student::all()->toArray();
+        return view('admin.show_info',compact('student'));
     }
 
     /**
@@ -36,19 +37,19 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        'spreaddhouse' => $request->get('spreaddhouse'),
-        'spreaddarea' => $request->get('spreaddarea'),
-        'spreaddpost' => $request->get('spreaddpost'),
-        'spreadddist' => $request->get('spreadddist'),
-        'spreaddstation'=>$request->get('spreaddstation'),
-        'spreadddpostal' => $request->get('spreadddpostal'),
-        'speraddvillage' => $request->get('speraddvillage'),
-        'speraddpost' => $request->get('speraddpost'),
-        'speraddstation' => $request->get('speraddstation'),
-        'speradddist' => $request->get('speradddist'),
+        $spreaddhouse= $request->get('spreaddhouse');
+        $spreaddarea= $request->get('spreaddarea');
+        $spreaddpost= $request->get('spreaddpost');
+        $spreadddist= $request->get('spreadddist');
+        $spreaddstation=$request->get('spreaddstation');
+        $spreadddpostal= $request->get('spreadddpostal');
+        $speraddvillage= $request->get('speraddvillage');
+        $speraddpost= $request->get('speraddpost');
+        $speraddstation= $request->get('speraddstation');
+        $speradddist= $request->get('speradddist');
 
-        $speradd='House NO :'.$spreadhouse.'Area Name :'.$spreadarea.'Post Office :'.$spreaddpost.'District :'.$spreadddist.'Police Station :'.$spreaddstation.'Postal Code :'.$spreadddpostal;
-        $spreadd ='Village :'.$speraddvillage.'Post Office :'.$speraddpost.'Police Station :'.$speraddstation.'District :'.$speraddstation
+        $speradd='House NO :'.$spreaddhouse.','.'Area Name :'.$spreaddarea.','.'Post Office :'.$spreaddpost.','.'District :'.$spreadddist.','.'Police Station :'.$spreaddstation.','.'Postal Code :'.$spreadddpostal;
+        $spreadd ='Village :'.$speraddvillage.','.'Post Office :'.$speraddpost.','.'Police Station :'.$speraddstation.','.'District :'.$speraddstation;
 
         $stu_info_new = new student([
           'fname' => $request->get('fname'),
@@ -63,13 +64,13 @@ class AdminController extends Controller
           'ssection' => $request->get('ssection'),
           'sgroup' => $request->get('sgroup'),
           'sshift' => $request->get('sshift'),
-          'speradd'=>$request->get($speradd),
-          'spreadd'=>$request->get($spreadd),
+          'speradd'=>$speradd,
+          'spreadd'=>$spreadd
           
 
         ]);
 
-        $stu_info_new->save();
+        $insert=$stu_info_new->save();
         return redirect('/admin');
     }
 

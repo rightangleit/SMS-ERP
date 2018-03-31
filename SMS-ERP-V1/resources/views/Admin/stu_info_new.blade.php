@@ -198,7 +198,7 @@
 
 					<!-- <h1 class="title">Personal Information</h1> -->
 					<div class="col-sm-12 col-md-12" id="row_1st_col" style="">
-							<form class="form-horizontal fixed" id="form-horizontal" method="POST" action="{{url('admin')}}">
+							<form class="form-horizontal fixed" id="form-horizontal" method="post" action="{{url('admin')}}">
 								{{csrf_field()}}
 								<button type="submit" id="button1" name="submit" class="btn-lg btn-primary buttons" onClick="showTable('f1','f2','f3','h1')">Personal Information
 								</button>
@@ -219,18 +219,18 @@
 						        
 						    	<div class="form-group, col-sm-6 col-md-6">
 									<label for="fname" class="control-label">First Name:</label>
-									<input type="text" class="form-control" id="fname" placeholder="First Name" data-error="Enter Your First Name" required>
+									<input type="text" class="form-control" id="fname" placeholder="First Name" data-error="Enter Your First Name" name="fname" required>
 
             						<div class="help-block with-errors"></div>
 								</div>
 								<div class="form-group, col-sm-6 col-md-6">
 									<label for="lname" class="control-label">Last Name:</label>
-									<input type="text" class="form-control" id="lname" placeholder="Last Name" data-error="Enter Your Last Name" required>
+									<input type="text" class="form-control" id="lname" placeholder="Last Name" data-error="Enter Your Last Name" required name="lname">
 									<div class="help-block with-errors"></div>
 								</div>
 								<div class="form-group, col-sm-6 col-md-6">
 									<label for="gname" class="control-label">Guardian's Name:</label>
-									<input type="text" class="form-control" id="gname" placeholder="Guardian's name" data-error="" required>
+									<input type="text" class="form-control" id="gname" placeholder="Guardian's name" data-error="" required name="gname">
 									<div class="help-block with-errors"></div>
 								</div>
 								<div class="form-group, col-sm-6 col-md-6">
@@ -368,7 +368,7 @@
 										<div class="col-sm-6 col-md-6" >
 											<div class="form-group">
 												<label for="lname" class="control-label">Group</label>
-												<select class="form-control" id="class">
+												<select class="form-control" id="class" name="sgroup">
 													<option>
 														Science
 													</option>
