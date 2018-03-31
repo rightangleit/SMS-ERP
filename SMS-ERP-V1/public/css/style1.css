@@ -538,7 +538,7 @@ label#label_rId{
  	margin-left: -185px;
  }
  .btn.btn-lg {
-	width: 30%;
+	width: 10%;
 	height: 50px;
 	margin: 0 auto;
 	text-align: center;
@@ -578,4 +578,16 @@ label#label_rId{
 }
 #pinformation{
 	margin-top: -23px;
+}
+#btn_next{
+	float: right;
+    margin-right: 48px;
+}
+#btn_back{
+	float: left;
+    margin-left: 48px;
+}
+#btn_save{
+	float: right;
+    margin-right: 53px;
 }

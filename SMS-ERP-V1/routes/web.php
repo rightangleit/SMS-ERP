@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/dashboard', function () {
+/*Route::get('/dashboard', function () {
     return view('Admin.dashboard');
 });
 Route::get('/insert_result', function () {
@@ -31,4 +31,5 @@ Route::get('/show_result', function () {
 });
 Route::get('/stu_info_new', function () {
     return view('Admin.stu_info_new');
-});
+});*/
+Route::resource('admin', 'AdminController');

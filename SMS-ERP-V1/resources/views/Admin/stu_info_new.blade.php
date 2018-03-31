@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ config('app.locale') }}">
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.min.css">
@@ -14,6 +14,8 @@
   	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	
 	<link rel="stylesheet" type="text/css" href="/css/style1.css">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, 
 	initial-scale=1, maximum-scale=1">
   	
@@ -196,9 +198,9 @@
 
 					<!-- <h1 class="title">Personal Information</h1> -->
 					<div class="col-sm-12 col-md-12" id="row_1st_col" style="">
-							<form class="form-horizontal fixed" id="form-horizontal"  action="/action_page.php">
-								<button type="submit" id="button1" name="submit" class="btn-lg btn-primary buttons" data-toggle="" data-target="" 
-									onClick="showTable('f1','f2','f3','h1')">Personal Information
+							<form class="form-horizontal fixed" id="form-horizontal" method="POST" action="{{url('admin')}}">
+								{{csrf_field()}}
+								<button type="submit" id="button1" name="submit" class="btn-lg btn-primary buttons" onClick="showTable('f1','f2','f3','h1')">Personal Information
 								</button>
 								<button type="submit"  id="button2" name="submit" class="btn-lg btn-primary buttons" data-toggle="" data-target=""  
 									onClick="showTable('f2','f1','f3','h1')">Education
@@ -218,7 +220,8 @@
 						    	<div class="form-group, col-sm-6 col-md-6">
 									<label for="fname" class="control-label">First Name:</label>
 									<input type="text" class="form-control" id="fname" placeholder="First Name" data-error="Enter Your First Name" required>
-									<div class="help-block with-errors"></div>
+
+            						<div class="help-block with-errors"></div>
 								</div>
 								<div class="form-group, col-sm-6 col-md-6">
 									<label for="lname" class="control-label">Last Name:</label>
@@ -232,12 +235,12 @@
 								</div>
 								<div class="form-group, col-sm-6 col-md-6">
 									<label for="goccupation" class="control-label">Guardian's Occupation:</label>
-									<input type="text" class="form-control" id="goccupation" placeholder="Guardian's occupation" data-error="" required>
+									<input type="text" class="form-control" id="goccupation" name="goccup" placeholder="Guardian's occupation" data-error="" required>
 									<div class="help-block with-errors"></div>
 								</div>
 								<div class="form-group, col-sm-6 col-md-6">
 									<label for="g_phone" class="control-label">Guardian's Phone Number:</label>
-									<input type="number" class="form-control" id="g_phone" placeholder="Guardian's Phone Number" data-error="" required>
+									<input type="number" class="form-control" id="g_phone" name="gphone" placeholder="Guardian's Phone Number" data-error="" required>
 									<div class="help-block with-errors"></div>
 								</div>
 								<!-- <div class="form-group">
@@ -248,17 +251,17 @@
 								</div> -->
 								<div class="form-group, col-sm-6 col-md-6">
 									<label for="s_phone" class="control-label">Student's Phone Number:</label>
-									<input type="number" class="form-control" id="s_phone" placeholder="Student's Phone Number" data-error="">
+									<input type="number" class="form-control" id="s_phone" placeholder="Student's Phone Number" data-error="" name="sphone">
 									<div class="help-block with-errors"></div>
 								</div>
 								<div class="form-group, col-sm-6 col-md-6">
 									<label for="dob" class="control-label">Date of Birth:</label>
-									<input type="Date" class="form-control" id="dob" data-error="">
+									<input type="Date" class="form-control" id="dob" data-error="" name="sdob">
 									<div class="help-block with-errors"></div>
 								</div>
 								<div class="form-group, col-sm-6 col-md-6">
-									<label for="class" class="control-label">Blood Group</label>
-									<select class="form-control" id="class">
+									<label for="class" class="control-label" >Blood Group</label>
+									<select class="form-control" id="class" name="sblood">
 										<option>
 											O+
 										</option>
@@ -307,7 +310,7 @@
 									<div class="help-block with-errors"></div>
 								</div> -->
 									<div class="form-group">
-										<button type="submit" class="btn btn-lg" id="btn_reg">submit</button>
+										<button type="submit" class="btn btn-lg"  onClick="showTable('f2','f1','f3','h1')" id="btn_reg">Next</button>
 									</div>
 								</div>
 								
@@ -319,7 +322,7 @@
 										<div class="col-sm-6 col-md-6" >
 											<div class="form-group">
 												<label for="lname" class="control-label">Class</label>
-												<select class="form-control" id="class">
+												<select class="form-control" id="class" name="sclass">
 													<option>
 														2
 													</option>
@@ -351,7 +354,7 @@
 										<div class="col-sm-6 col-md-6" >
 											<div class="form-group">
 												<label for="lname" class="control-label">Section</label>
-												<select class="form-control" id="class">
+												<select class="form-control" id="class" name="ssection">
 													<option>
 														a
 													</option>
@@ -382,7 +385,7 @@
 										<div class="col-sm-6 col-md-6" >
 											<div class="form-group">
 												<label for="lname" class="control-label">Shift</label>
-												<select class="form-control" id="class">
+												<select class="form-control" id="class" name="sshift">
 													<option>
 														Morning
 													</option>
@@ -394,7 +397,8 @@
 											</div>
 										</div>
 										<div class="form-group">
-											<button type="submit" class="btn btn-lg" id="btn_reg">submit</button>
+											<button type="submit" class="btn btn-lg" id="btn_next" onClick="showTable('f3','f2','f1','h1')">Next</button>
+											<button type="submit" class="btn btn-lg" id="btn_back" onClick="showTable('f1','f2','f2','h1')">Back</button>
 										</div>
 								</div>
 								<div class="col-sm-12 col-md-12" style="display: none;" id="f3">
@@ -405,34 +409,41 @@
 										<h2 style="text-align: center;">Present Address</h2>
 										<div class="form-group">
 											<label for="lname" class="control-label">House Number:</label>
-											<input type="text" class="form-control" id="lname" placeholder="House number" data-error="Enter Your Last Name" required>
+											<input type="text" class="form-control" id="lname" placeholder="House number" data-error="Enter Your Last Name" required name="spreaddhouse">
 											<div class="help-block with-errors"></div>
 										</div>
 										<div class="form-group">
 											<label for="lname" class="control-label">Area Name:</label>
-											<input type="text" class="form-control" id="lname" placeholder="Area Name" data-error="Enter Your Last Name" required>
+											<input type="text" class="form-control" id="lname" placeholder="Area Name" data-error="Enter Your Last Name" required name="spreaddarea">
 											<div class="help-block with-errors"></div>
 										</div>
 										<div class="form-group">
 											<label for="lname" class="control-label">Post Office:</label>
-											<input type="text" class="form-control" id="lname" placeholder="Post Office" data-error="Enter Your Last Name" required>
+											<input type="text" class="form-control" id="lname" placeholder="Post Office" data-error="Enter Your Last Name" required name="spreaddpost">
 											<div class="help-block with-errors"></div>
 										</div>
 										<div class="form-group">
 											<label for="lname" class="control-label">District:</label>
-											<input type="text" class="form-control" id="lname" placeholder="District" data-error="Enter Your Last Name" required>
+											<select class="form-control" id="class" name="spreadddist">
+													<option>
+														Dhaka
+													</option>
+													<option>
+														Chittagong
+													</option>
+											</select>
 											<div class="help-block with-errors"></div>
 										</div>
 										<div class="form-group">
 											<label for="lname" class="control-label">Police Station:</label>
-											<input type="text" class="form-control" id="lname" placeholder="Police Station" data-error="Enter Your Last Name" required>
+											<input type="text" class="form-control" id="lname" placeholder="Police Station" data-error="Enter Your Last Name" required name="spreaddstation">
 											<div class="help-block with-errors"></div>
 										</div>
 
 										
 										<div class="form-group">
 											<label for="lname" class="control-label">Postal Code:</label>
-											<input type="text" class="form-control" id="lname" placeholder="Postal Code" data-error="Enter Your Last Name" required>
+											<input type="text" class="form-control" id="lname" placeholder="Postal Code" data-error="Enter Your Last Name" required name="spreadddpostal">
 											<div class="help-block with-errors"></div>
 										</div>
 										
@@ -444,28 +455,30 @@
 										<h2 style="text-align: center;" >Permanent Address</h2>
 										<div class="form-group">
 											<label for="lname" class="control-label">Village:</label>
-											<input type="text" class="form-control" id="lname" placeholder="Village" data-error="Enter Your Last Name" required>
+											<input type="text" class="form-control" id="lname" placeholder="Village" data-error="Enter Your Last Name" required name="speraddvillage">
 											<div class="help-block with-errors"></div>
 										</div>
 										<div class="form-group">
 											<label for="lname" class="control-label">Post Office:</label>
-											<input type="text" class="form-control" id="lname" placeholder="Post Office" data-error="Enter Your Last Name" required>
+											<input type="text" class="form-control" id="lname" placeholder="Post Office" data-error="Enter Your Last Name" required name="speraddpostal">
 											<div class="help-block with-errors"></div>
 										</div>
 										<div class="form-group">
 											<label for="lname" class="control-label">Police Station:</label>
-											<input type="text" class="form-control" id="lname" placeholder="Police Station" data-error="Enter Your Last Name" required>
+											<input type="text" class="form-control" id="lname" placeholder="Police Station" data-error="Enter Your Last Name" required name="speraddstation">
 											<div class="help-block with-errors"></div>
 										</div>
 										<div class="form-group">
 											<label for="lname" class="control-label">District:</label>
-											<input type="text" class="form-control" id="lname" placeholder="District" data-error="Enter Your Last Name" required>
+											<input type="text" class="form-control" id="lname" placeholder="District" data-error="Enter Your Last Name" required name="speradddist">
 											<div class="help-block with-errors"></div>
 										</div>
 
 									</div>
 									<div class="form-group">
-									<button type="submit" class="btn btn-lg" id="btn_reg">submit</button>
+									<button type="submit" class="btn btn-lg" id="btn_save"
+									 name="submit">Save</button>
+									<button type="submit" class="btn btn-lg" id="btn_back" onClick="showTable('f2','f1','f3','h1')">Back</button>
 									</div>
 								</div>
 								

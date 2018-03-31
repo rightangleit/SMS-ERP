@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\student;
 
 class AdminController extends Controller
 {
@@ -23,8 +24,9 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.stu_info_new');
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -34,7 +36,33 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $stu_info_new = new student([
+          'fname' => $request->get('fname'),
+          'lname' => $request->get('lname'),
+          'gname' => $request->get('gname'),
+          'goccup' => $request->get('goccup'),
+          'gphone' => $request->get('gphone'),
+          'sphone' => $request->get('sphone'),
+          'sdob' => $request->get('sdob'),
+          'sblood' => $request->get('sblood'),
+          'sclass' => $request->get('sclass'),
+          'ssection' => $request->get('ssection'),
+          'sgroup' => $request->get('sgroup'),
+          'sshift' => $request->get('sshift'),
+          'spreaddhouse' => $request->get('spreaddhouse'),
+          'spreaddarea' => $request->get('spreaddarea'),
+          'spreaddpost' => $request->get('spreaddpost'),
+          'spreadddist' => $request->get('spreadddist'),
+          'spreadddpostal' => $request->get('spreadddpostal'),
+          'speraddvillage' => $request->get('speraddvillage'),
+          'speraddpostal' => $request->get('speraddpostal'),
+          'speraddstation' => $request->get('speraddstation'),
+          'speradddist' => $request->get('speradddist')
+
+        ]);
+
+        $stu_info_new->save();
+        return redirect('/admin');
     }
 
     /**
