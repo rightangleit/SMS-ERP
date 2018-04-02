@@ -72,7 +72,7 @@
 	            	//console.log(data[0]);
 	            	student = data[0];
 	            	var view_table1 ='<tr><td>'+student.id+'</td><td>'+student.fname+'</td><td>'+student.lname+'</td><td>'+student.gname+'</td><td>'+student.goccup+'</td><td>'+student.gphone+'</td><td>'+student.sphone+'</td><td>'+student.sdob+'</td><td>'+student.sblood+'</td><td><a href="#">Edit</a></td></tr>';
-	            	var view_table2 ='<tr><td>'+student.sclass+'</td><td>'+student.ssection+'</td><td>'+student.sgroup+'</td><td>'+student.sshift+'</td><td><a href="#">Edit</a></td></tr>';
+	            	var view_table2 ='<tr><td>'+student.sclass+'</td><td>'+student.ssection+'</td><td>'+student.sgroup+'</td><td>'+student.sshift+'</td><td><a onclick="edit_in()" >Edit</a></td></tr>';
 	            	var view_table3 ='<tr><td>'+student.speradd+'</td><td>'+student.spreadd+'</td><td><a href="#">Edit</a></td></tr>';
 	            	//$('.modal-body').html(response):/
 
@@ -109,6 +109,7 @@
 		function reload(){
 			 document.location.reload();
 		}
+		
 	</script>
 </head>
 
@@ -277,7 +278,11 @@
 									<th>Edit</th>       
 								</tr>
 							</thead>
-							<tbody> </tbody>
+							<tbody>
+						
+								
+							
+							 </tbody>
 						</table>															
 					</div>
 
@@ -317,7 +322,9 @@
 			</div>
 		</div>
 	</div>
-
+	
+		
+	
 	
 
 	
