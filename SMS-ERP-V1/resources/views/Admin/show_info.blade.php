@@ -18,9 +18,9 @@
 	initial-scale=1, maximum-scale=1">
   	
   	<link rel="stylesheet" type="text/css" href="{{asset('/css/animate.min.css')}}">
-  	<script src="/js/wow.min.js"></script>
+<!--   	<script src="/js/wow.min.js"></script> -->
     <script>
-        new WOW().init();
+        //new WOW().init();
     </script>
   <!--   <script type="text/javascript">
     	function showTable2() {
@@ -43,6 +43,74 @@
 	      
 	    }
 	</script>
+
+	<script type="text/javascript">
+		
+
+	$(document).ready(function() {
+
+    // process the form
+    	$('form').submit(function(event) {
+
+    		//$('#server_msg_modal').modal('show');
+    		//return false;
+        // get the form data
+        // there are many ways to get this data using jQuery (you can use the class or id also)
+        //event.preventDefault();
+        event.preventDefault();
+
+        var formData = {
+            'rId': $('input[name=rId]').val(),
+
+            '_token': "{{csrf_token()}}",
+            
+        };
+
+        // process the form
+        $.ajax({
+            type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
+            url         : 'show_info', // the url where we want to POST
+            data        : formData, // our data object
+            dataType    : 'json', // what type of data do we expect back from the server
+            success: function(data){
+
+            	//console.log(data[0]);
+            	student = data[0];
+            	var view_table1 ='<tr><td>'+student.id+'</td><td>'+student.fname+'</td><td>'+student.lname+'</td><td>'+student.gname+'</td><td>'+student.goccup+'</td><td>'+student.gphone+'</td><td>'+student.sphone+'</td><td>'+student.sdob+'</td><td>'+student.sblood+'</td><td><a href="#">Edit</a></td></tr>';
+            	var view_table2 ='<tr><td>'+student.sclass+'</td><td>'+student.ssection+'</td><td>'+student.sgroup+'</td><td>'+student.sshift+'</td><td><a href="#">Edit</a></td></tr>';
+            	var view_table3 ='<tr><td>'+student.speradd+'</td><td>'+student.spreadd+'</td><td><a href="#">Edit</a></td></tr>';
+            	//$('.modal-body').html(response):/
+
+            	$('#table1').append(view_table1);
+            	$('#table2').append(view_table2);
+            	$('#table3').append(view_table3);
+            	$('#myModal').modal('show');
+
+            	
+            	//$('#myModal').modal('show');
+
+            		
+            	
+
+            },
+            error: function(err){
+
+            }
+
+
+
+        });
+        // stop the form from submitting the normal way and refreshing the page
+        
+
+    });
+
+});
+
+
+	</script>
+
+	
 </head>
 <body>
 	<div id="navbar" class="navbar navbar-default navbar-fixed-top navbar-inverse" 
@@ -199,53 +267,58 @@
 				<div class="row" id="row_form">
 					<!-- <h1 class="title">Personal Information</h1> -->
 					<div class="col-sm-12 col-md-12" id="row_1st_col_rId" style="">
-							<form class="form-horizontal"   action="/action_page.php" >
-								<!-- <div class=" wow slideInLeft" data-wow-duration="1s"  > -->
-										<!-- <div class="pinformation">
-						    					<h1>Personal Information</h1>
-						        		</div> -->
-						    			<div class="form-group, col-sm-6 col-md-6" >
-											<label for="rId" id="label_rId" class="control-label">Enter Registration Number: </label>
-											<input type="text" class="form-control" id="rId" placeholder="Registration Number" data-error="Enter Student's Registration Number" required>
-												<div class="help-block with-errors"></div>
-												<button type="button" class="btn btn-primary" id="btn_profile" data-toggle="modal" data-target="#myModal" onClick="showTable1('table1')">See Profile</button>
-										</div>
+							
+								<form class="form-horizontal" method="POST" action="{{url('show_info')}}" >
+								{{csrf_field()}}
+									<!-- <div class=" wow slideInLeft" data-wow-duration="1s"  > -->
+											<!-- <div class="pinformation">
+							    					<h1>Personal Information</h1>
+							        		</div> -->
+							    			<div class="form-group, col-sm-6 col-md-6" >
+												<label for="rId" id="label_rId" class="control-label">Enter Registration Number: </label>
+												<input type="text" class="form-control" id="rId" placeholder="Registration Number" data-error="Enter Student's Registration Number" required name="rId">
+													<div class="help-block with-errors"></div>
+													<button type="submit" class="btn btn-primary" id="btn_profile"   name="seeprofile">See Profile</button>
+											</div>
 
-										
-							</form>
+											
+								</form>
+							
 						</div>
 					</div>
 
 				
 
 				</div>
-			</div>
-		</div>
+		
+		
+									    
+			<!-- </div> -->
 
-
-		<div class="modal fade left modal1" id="myModal"> 
+	
+<div class="modal fade left modal1" id="myModal" role="dialog"> 
 			<div class="modal-dialog"> 
 				<div class="modal-content"> 
 							<div class="modal-header"> 
 									<!-- <h3 class="pull-left no-margin">Contact Form</h3> -->
 									<button type="submit" id="button1" name="submit" class="btn-lg btn-primary buttons" data-toggle="" data-target="" 
-									onClick="showTable('table1','table2','table3')">Personal Information</button>
+									onClick="showTable('tableA','tableB','tableC')">Personal Information</button>
 									<button type="submit"  id="button2" name="submit" class="btn-lg btn-primary buttons" data-toggle="" data-target=""  
-									onClick="showTable('table2','table1','table3')">Education</button>
-									<button type="submit"  id="button3" name="submit" class="btn-lg btn-primary buttons" onClick="showTable('table3','table1','table2')">Address</button>
-										<button type="button" class="close" data-dismiss="modal" title="Close"><span class="glyphicon glyphicon-remove"></span>
+									onClick="showTable('tableB','tableA','tableC')">Education</button>
+									<button type="submit"  id="button3" name="submit" class="btn-lg btn-primary buttons" onClick="showTable('tableC','tableA','tableB')">Address</button>
+										<button type="submit" class="close" data-dismiss="modal" title="Close"><span class="glyphicon glyphicon-remove"></span>
 										</button> 
 
 							</div> 
 							<div class="modal-body">
-									<div class="table-responsive" id="table1" style="display: none;">
-									<div class="pinformation" id="pinformation">
+									<div class="table-responsive" id="tableA" style="display: none">
+									<div class="pinformation" id="pinformation" >
 						    	        <h1>Personal Information</h1>
 						            </div>          
-									  <table class="table" >
+									  <table class="table" id="table1" >
 										    <thead>
 										      <tr>
-										        <th>#</th>
+										        <th>Registration Number</th>
 										        <th>Firstname</th>
 										        <th>Lastname</th>
 										        <th>Guardian's Name</th>
@@ -261,21 +334,9 @@
 										    <tbody>
 										    
          
-										      @foreach($student as $personal)
+										      
 
-										      <tr>
-										        <td>{{$personal['id']}}</td>
-										        <td>{{$personal['fname']}}</td>
-										        <td>{{$personal['lname']}}</td>
-										        <td>{{$personal['gname']}}</td>
-										        <td>{{$personal['goccup']}}</td>
-										        <td>{{$personal['gphone']}}</td>
-										        <td>{{$personal['sphone']}}</td>
-										        <td>{{$personal['sdob']}}</td>
-										        <td>{{$personal['sblood']}}</td>
-										        <td><a href="#">Edit</a></td>
-										      </tr>
-										      @endforeach
+										     
 										    </tbody>
 									  </table>
 									
@@ -283,13 +344,13 @@
 																					
 									</div>
 
-										<div class="table-responsive" id="table2" style="display: none"> 	 <div class="pinformation" id="pinformation">
+										<div class="table-responsive" id="tableB" style="display: none" > 	 <div class="pinformation" id="pinformation">
 							    	       		<h1>Educational Information</h1>
 							           		</div>     
-									  <table class="table">
+									  <table class="table" id="table2" >
 										    <thead>
 										    <tr>
-										        <th>#</th>
+										        
 										        <th>Class</th>
 										        <th>Section</th>
 										        <th>Group</th>
@@ -298,18 +359,7 @@
 										    </tr>
 										    </thead>
 										    <tbody>
-										      @foreach($student as $educational)
-
-										      <tr>
-										        <td>{{$educational['id']}}</td>
-										        <td>{{$educational['sclass']}}</td>
-										        <td>{{$educational['ssection']}}</td>
-										        <td>{{$educational['sgroup']}}</td>
-										        <td>{{$educational['sshift']}}</td>
-										        
-										        <td><a href="#">Edit</a></td>
-										      </tr>
-										      @endforeach
+										      
 										    </tbody>
 										      
 										      
@@ -319,13 +369,13 @@
 
 																					
 									</div>
-									<div class="table-responsive" id="table3" style="display: none">     	 <div class="pinformation" id="pinformation">
+									<div class="table-responsive" id="tableC" style="display: none">     	 <div class="pinformation" id="pinformation">
 							    	       	<h1>Address</h1>
 							           	</div>
-									  <table class="table">
+									  <table class="table" id="table3">
 										    <thead>
 										    <tr>
-										        <th>#</th>
+										        
 										        <th>Present Address</th>
 										        <th>Permanent Address</th>
 										        <th>Edit</th>
@@ -333,17 +383,9 @@
 										    </tr>
 										    </thead>
 										    <tbody>
-										      @foreach($student as $address)
+										
 
-										      <tr>
-										        <td>{{$address['id']}}</td>
-										        <td>{{$address['speradd']}}</td>
-										        <td>{{$address['spreadd']}}</td>
-										        
-										        
-										        <td><a href="#">Edit</a></td>
-										      </tr>
-										      @endforeach
+										      
 										      
 										    </tbody>
 									  </table>
@@ -356,9 +398,9 @@
 					</div>
 				</div>
 			</div>
-		
 
-								<!-- </div> -->
+	
+
 	
 </body>
 </html>

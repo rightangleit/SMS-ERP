@@ -23,7 +23,8 @@ Route::get('/insert_result', function () {
 Route::get('/search_result', function () {
     return view('Admin.search_result');
 });
-Route::get('/show_info', 'AdminController@index');
+Route::post('/show_info', 'AdminController@show');
+Route::get('/show_info', 'AdminController@show');
 Route::get('/show_result', function () {
     return view('Admin.show_result');
 });

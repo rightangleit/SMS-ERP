@@ -12,12 +12,15 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
+    private $student, $seeprofile;
     public function index()
     {
-        $student = student::all()->toArray();
-        $student = student::where('id',1)->get();
-        return view('Admin.show_info',compact('student'));
+
+        $student= student::all()->toArray();
+        //$rId = $request->get('rId');
+       
+        $student=student::where('id',1)->get();
+        //return view('Admin.show_info',compact('student'));
     }
 
     /**
@@ -49,6 +52,8 @@ class AdminController extends Controller
         $speraddpost= $request->get('speraddpost');
         $speraddstation= $request->get('speraddstation');
         $speradddist= $request->get('speradddist');
+       // $rId = $request->get('rId');
+        
 
         $speradd='House NO :'.$spreaddhouse.','.'Area Name :'.$spreaddarea.','.'Post Office :'.$spreaddpost.','.'District :'.$speradddist.','.'Police Station :'.$spreaddstation.','.'Postal Code :'.$spreadddpostal;
         $spreadd ='Village :'.$speraddvillage.','.'Post Office :'.$speraddpost.','.'Police Station :'.$speraddstation.','.'District :'.$speraddstation;
@@ -71,11 +76,14 @@ class AdminController extends Controller
           'speradd'=>$speradd,
           'spreadd'=>$spreadd
           
+          
 
         ]);
 
         $stu_info_new->save();
+
         return redirect('stu_info_new/create');
+        //show($rId);
     }
 
     /**
@@ -84,9 +92,24 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        //$student = student::all()->toArray();
+        if ($request->isMethod('post')) 
+        {
+            //dd($request);
+            $id = $request->get('rId');
+            $student = student::where('id',$id)->get();
+            //return view('Admin.show_info',compact('student'));
+            //return $student;
+            return response()->json($student);
+        }
+        else
+        {
+             $student = new student();
+            return view('Admin.show_info',compact('student'));
+        }
+       
     }
 
     /**
@@ -97,7 +120,7 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
@@ -114,7 +137,7 @@ class AdminController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
+     *il em
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
