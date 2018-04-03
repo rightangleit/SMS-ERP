@@ -71,9 +71,9 @@
 
 	            	//console.log(data[0]);
 	            	student = data[0];
-	            	var view_table1 ='<tr><td>'+student.id+'</td><td>'+student.fname+'</td><td>'+student.lname+'</td><td>'+student.gname+'</td><td>'+student.goccup+'</td><td>'+student.gphone+'</td><td>'+student.sphone+'</td><td>'+student.sdob+'</td><td>'+student.sblood+'</td><td><a href="#">Edit</a></td></tr>';
-	            	var view_table2 ='<tr><td>'+student.sclass+'</td><td>'+student.ssection+'</td><td>'+student.sgroup+'</td><td>'+student.sshift+'</td><td><a onclick="edit_in()" >Edit</a></td></tr>';
-	            	var view_table3 ='<tr><td>'+student.speradd+'</td><td>'+student.spreadd+'</td><td><a href="#">Edit</a></td></tr>';
+	            	var view_table1 ='<tr><td id="id" contenteditable=true>'+student.id+'</td><td id="fname">'+student.fname+'</td><td id="lname">'+student.lname+'</td><td id="sgname">'+student.gname+'</td><td id="sgoccup">'+student.goccup+'</td><td id="gphone">'+student.gphone+'</td><td id="sphone">'+student.sphone+'</td><td id="sdob">'+student.sdob+'</td><td id="sblood">'+student.sblood+'</td><td><a  href="#" id="editbtn">Edit</a></td><td><a href="#" id="savebtn">Save</a></td></tr>';
+	            	var view_table2 ='<tr><td>'+student.sclass+'</td><td>'+student.ssection+'</td><td>'+student.sgroup+'</td><td>'+student.sshift+'</td><td><a href="#" id="editbtn" >Edit</a></td></tr>';
+	            	var view_table3 ='<tr><td>'+student.speradd+'</td><td>'+student.spreadd+'</td><td><a href="#" class="editbtn">Edit</a></td></tr>';
 	            	//$('.modal-body').html(response):/
 
 	            	$('#table1').append(view_table1);
@@ -110,6 +110,130 @@
 			 document.location.reload();
 		}
 		
+	</script>
+
+
+	<script type="text/javascript">
+
+	$(document).on('click','#editbtn',function(){
+		
+			var tr = $(this).closest('tr');
+			var id = $(tr).find('td:eq(0)').text();
+			var fname = $(tr).find('td:eq(1)').text();
+			var lname = $(tr).find('td:eq(2)').text();
+			var gname = $(tr).find('td:eq(3)').text();
+			var goccup = $(tr).find('td:eq(4)').text();
+			var gphone = $(tr).find('td:eq(5)').text();
+			var sphone = $(tr).find('td:eq(6)').text();
+			var sdob = $(tr).find('td:eq(7)').text();
+			var sblood = $(tr).find('td:eq(8)').text();
+			//$(td).css('padding','5px');
+			//$('td').css("padding", "20px");
+			//$('#id').css("border", "10px");
+			//$('tr').css("padding", "10px");
+			//alert(fname);
+			$("#tableA").hide();
+			$("#tableD").show();
+			
+			$("input[name='fname1']").val(fname);
+			$("input[name='lname1']").val(lname);
+			$("input[name='gname1']").val(gname);
+			$("input[name='goccup1']").val(goccup);
+			$("input[name='gphone1']").val(gphone);
+			$("input[name='sphone1']").val(sphone);
+			$("input[name='sdob1']").val(sdob);
+			$("input[name='sblood1']").val(sblood);
+
+		
+	});
+	/*	$(document).ready(function () {
+          $('.editbtn').click(function () {
+          		$("#table1").hide();
+          		$("#table2").show();
+              var currentTD = $(this).parents('tr').find('td');
+              if ($(this).html() == 'Edit') {
+                  currentTD = $(this).parents('tr').find('td');
+                  $.each(currentTD, function () {
+                      $(this).prop('contenteditable', true)
+                  });
+              } 
+              }
+    
+              $(this).html($(this).html() == 'Edit' ? 'Save' : 'Edit')
+    
+          });
+    
+      });*/
+
+      /*document.getElementById("editbtn").style.display="none";
+			 document.getElementById("savebtn").style.display="block";*/
+				
+			//var i=document.getElementById("id"+no);
+			/* var fname=document.getElementById("fname");
+			 var lname=document.getElementById("lname");
+			 var gname=document.getElementById("gname");
+			 var gphone=document.getElementById("gphone");
+			 var sphone=document.getElementById("sphone");
+			 var sdob=document.getElementById("sdob");
+			 var sblood=document.getElementById("sblood");
+
+			 var fname=fname.innerHTML;
+			 var lname=lname.innerHTML;
+			 var gname=gname.innerHTML;
+			 var gphone=gphone.innerHTML;
+			 var sphone=sphone.innerHTML;
+			 var sdob=sdob.innerHTML;
+			 var sblood=sblood.innerHTML;
+			 
+				
+			 fname.innerHTML="<input type='text' id='fname' value='"+fname+"'>";
+			 lname.innerHTML="<input type='text' id='lname' value='"+lname+"'>";
+			 gname.innerHTML="<input type='text' id='gname' value='"+gname+"'>";*/
+	</script>
+
+	<script type="text/javascript">
+		
+		/*function edit_row(no)
+		{
+			 document.getElementById("editbtn"+no).style.display="none";
+			 document.getElementById("savebtn"+no).style.display="block";
+				
+			//var i=document.getElementById("id"+no);
+			 var fname=document.getElementById("fname"+no);
+			 var lname=document.getElementById("lname"+no);
+			 var gname=document.getElementById("gname"+no);
+			 var gphone=document.getElementById("gphone"+no);
+			 var sphone=document.getElementById("sphone"+no);
+			 var sdob=document.getElementById("sdob"+no);
+			 var sblood=document.getElementById("sblood"+no);
+
+			 var fname=fname.innerHTML;
+			 var lname=lname.innerHTML;
+			 var gname=gname.innerHTML;
+			 var gphone=gphone.innerHTML;
+			 var sphone=sphone.innerHTML;
+			 var sdob=sdob.innerHTML;
+			 var sblood=sblood.innerHTML;
+			 
+				
+			 fname.innerHTML="<input type='text' id='name_text"+no+"' value='"+fname+"'>";
+			 lname.innerHTML="<input type='text' id='country_text"+no+"' value='"+lname+"'>";
+			 gname.innerHTML="<input type='text' id='age_text"+no+"' value='"+gname+"'>";
+		}
+
+		function save_row(no)
+		{
+			 var name_val=document.getElementById("name_text"+no).value;
+			 var country_val=document.getElementById("country_text"+no).value;
+			 var age_val=document.getElementById("age_text"+no).value;
+
+			 document.getElementById("name_row"+no).innerHTML=name_val;
+			 document.getElementById("country_row"+no).innerHTML=country_val;
+			 document.getElementById("age_row"+no).innerHTML=age_val;
+
+			 document.getElementById("edit_button"+no).style.display="block";
+			 document.getElementById("save_button"+no).style.display="none";
+		}*/
 	</script>
 </head>
 
@@ -316,6 +440,40 @@
 								</tr>
 							</thead>
 							<tbody> </tbody>
+						</table>
+					</div>
+					<div class="table-responsive" id="tableD" style="display: none">    
+						<div class="pinformation" id="pinformation">
+							   <h1>Personal Information (Please Update your Information)</h1>
+						</div>
+						<table class="table" id="table4">
+							<thead>
+								<tr>
+									<th>Registration Number</th>
+									<th>Firstname</th>
+									<th>Lastname</th>
+									<th>Guardian's Name</th>
+									<th>Guardian's Occupation</th>
+									<th>Guardian's Phone Number</th>
+									<th>Student's Phone Number</th>
+									<th>Date of Birth</th>
+									<th>Blood Group</th>
+									
+									<th>Save</th>       
+								</tr>
+							</thead>
+							<tbody><tr><td><input type="number" name="" class="form-control" disabled="true" value="disabled" name="id1"></td>
+							 			<td><input type="text" name="fname1" class="form-control"></td>
+							 			<td><input type="text" name="lname1" class="form-control"></td>
+							 			<td><input type="text" name="gname1" class="form-control"></td>
+							 			<td><input type="text" name="goccup1" class="form-control"></td>
+							 			<td><input type="number" name="gphone1" class="form-control"></td>
+							 			<td><input type="number" name="sphone1" class="form-control"></td>
+							 			<td><input type="Date" name="sdob1" class="form-control"></td>
+							 			<td><input type="text" name="sblood1" class="form-control"></td>
+							 			<td><a href="#">Save</a></td>
+							 		</tr> 
+							 </tbody>
 						</table>
 					</div>
 				</div>

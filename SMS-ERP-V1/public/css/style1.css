@@ -574,7 +574,8 @@ label#label_rId{
 }
 .modal-content{
 	height: 100%;
-	width: 916px;
+    width: 1154px;
+    margin-left: -118px
 }
 #pinformation{
 	margin-top: -23px;
