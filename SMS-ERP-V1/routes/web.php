@@ -24,9 +24,11 @@ Route::get('/search_result', function () {
     return view('Admin.search_result');
 });
 Route::post('/show_info', 'AdminController@show');
+Route::PUT('/show_info/{show_info}', 'AdminController@update');
 Route::get('/show_info', 'AdminController@show');
 Route::get('/show_result', function () {
     return view('Admin.show_result');
 });
 /*Route::get('/stu_info_new', 'AdminController@create');*/
 Route::resource('/stu_info_new', 'AdminController');
+//Route::resource('/show_info', 'AdminController');

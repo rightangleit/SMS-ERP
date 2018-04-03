@@ -132,7 +132,23 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       
+        
+            $student = student::find($id);
+            $student->fname = $request->get('fname');
+            $student->lname = $request->get('lname');
+            $student->gname = $request->get('gname');
+            $student->goccup = $request->get('goccup');
+            $student->gphone = $request->get('gphone');
+            $student->sphone= $request->get('sphone');
+            $student->sdob = $request->get('sdob');
+            $student->sblood = $request->get('sblood');
+           
+            $stu = $student->save(); 
+            //return view('Admin.show_info',compact('student'));
+            //return $student;
+            return response()->json($student);
+        
     }
 
     /**
