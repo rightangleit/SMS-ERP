@@ -135,6 +135,7 @@ class AdminController extends Controller
        
         
             $student = student::find($id);
+            $s = student::find($id);
             $student->fname = $request->get('fname');
             $student->lname = $request->get('lname');
             $student->gname = $request->get('gname');
@@ -145,9 +146,35 @@ class AdminController extends Controller
             $student->sblood = $request->get('sblood');
            
             $stu = $student->save(); 
+            
             //return view('Admin.show_info',compact('student'));
             //return $student;
+           /* $s->sclass = $request->get('sclass');
+            $s->ssection = $request->get('ssection');
+            $s->sgroup = $request->get('sgroup');
+            $s->sshift = $request->get('sshift');
+            $s->save();*/
+            //dd($student);
             return response()->json($student);
+            
+        
+    }
+     public function update1(Request $request, $id)
+    {
+       
+            //return $request;            
+            $student = student::find($id);
+            $student->sclass = $request->get('sclass');
+            $student->ssection = $request->get('ssection');
+            $student->sgroup = $request->get('sgroup');
+            $student->sshift = $request->get('sshift');
+            
+           
+            $stu = $student->save(); 
+            //return view('Admin.show_info',compact('student'));
+            //return $student;
+            
+             return response()->json($student);
         
     }
 
