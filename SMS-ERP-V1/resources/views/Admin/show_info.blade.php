@@ -22,12 +22,7 @@
     <script>
         //new WOW().init();
     </script>
-  <!--   <script type="text/javascript">
-    	function showTable2() {
-   				document.getElementById('table2').style.display = "block";
-   				
-		}
-    </script> -->
+  
     <script type="text/javascript">
       	function showTable(one,second,three)
 	    {
@@ -170,29 +165,18 @@
 	$(document).on('click','#editbtn3',function(){
 		
 			var tr = $(this).closest('tr');
-			var id = $(tr).find('td:eq(0)').text();
-			var fname = $(tr).find('td:eq(1)').text();
-			var lname = $(tr).find('td:eq(2)').text();
-			var gname = $(tr).find('td:eq(3)').text();
-			var goccup = $(tr).find('td:eq(4)').text();
-			var gphone = $(tr).find('td:eq(5)').text();
-			var sphone = $(tr).find('td:eq(6)').text();
-			var sdob = $(tr).find('td:eq(7)').text();
-			var sblood = $(tr).find('td:eq(8)').text();
+			var id = $('#table1 tr').find('td:eq(0)').text();
+			var preadd = $(tr).find('td:eq(0)').text();
+			var peradd = $(tr).find('td:eq(1)').text();
+			
 			
 			
 			$("#tableC").hide();
-			$("#tableD").show();
-			$("input[name='id1']").val(id);
-			$("input[name='fname1']").val(fname);
-			$("input[name='lname1']").val(lname);
-			$("input[name='gname1']").val(gname);
-			$("input[name='goccup1']").val(goccup);
-			$("input[name='gphone1']").val(gphone);
-			$("input[name='sphone1']").val(sphone);
-			$("input[name='sdob1']").val(sdob);
-			$("input[name='sblood1']").val(sblood);
-			id = $('input[name=id]').val()
+			$("#tableF").show();
+			$("input[name='id3']").val(id);
+			$("input[name='spreadd1']").val(preadd);
+			$("input[name='speradd1']").val(peradd);
+			
 
 		
 	});
@@ -212,14 +196,7 @@
 	            'sphone': $('input[name=sphone1]').val(),
 	            'sdob': $('input[name=sdob1]').val(),
 	            'sblood': $('input[name=sblood1]').val(),
-	            /*'sclass': $('input[name=sclass1]').val(),
-	            'ssection': $('input[name=ssection1]').val(),
-	            'sgroup': $('input[name=sgroup1]').val(),
-	            'ssection': $('input[name=ssection1]').val(),*/
-
 	            '_token': "{{csrf_token()}}",
-	            
-
 	        };
 
 
@@ -238,8 +215,8 @@
 	            	student = data;
 	            	//s=data1;
 	            	var view_table1 ='<tr><td id="id">'+student.id+'</td><td id="fname">'+student.fname+'</td><td id="lname">'+student.lname+'</td><td id="sgname">'+student.gname+'</td><td id="sgoccup">'+student.goccup+'</td><td id="gphone">'+student.gphone+'</td><td id="sphone">'+student.sphone+'</td><td id="sdob">'+student.sdob+'</td><td id="sblood">'+student.sblood+'</td><td><a  href="#" id="editbtn">Edit</a></td></tr>';
-	            	//var view_table2 ='<tr><td>'+s.sclass+'</td><td>'+s.ssection+'</td><td>'+s.sgroup+'</td><td>'+s.sshift+'</td><td><a href="#" id="editbtn" >Edit</a></td></tr>';
-	            	var view_table3 ='<tr><td>'+student.speradd+'</td><td>'+student.spreadd+'</td><td><a href="#" id="editbtn">Edit</a></td></tr>';
+	            	var view_table2 ='<tr><td>'+student.sclass+'</td><td>'+student.ssection+'</td><td>'+student.sgroup+'</td><td>'+student.sshift+'</td><td><a href="#" id="editbtn2" >Edit</a></td></tr>';
+	            	var view_table3 ='<tr><td>'+student.speradd+'</td><td>'+student.spreadd+'</td><td><a href="#" id="editbtn3">Edit</a></td></tr>';
 	            	 
 
 	            	//$('#view_table1').replaceWith(table1);
@@ -247,8 +224,8 @@
 	            	$("#table2 tbody tr:first-child").remove();
 	            	$("#table3 tbody tr:first-child").remove();
 	            	$('#table1').append(view_table1);
-	            	//$('#table2').append(view_table2);
-	            	//$('#table3').append(view_table3);
+	            	$('#table2').append(view_table2);
+	            	$('#table3').append(view_table3);
 	            	
 	            	
 
@@ -307,17 +284,19 @@
 
 	            	console.log(data);
 	            	student = data;
-	            	//var view_table1 ='<tr><td id="id">'+student.id+'</td><td id="fname">'+student.fname+'</td><td id="lname">'+student.lname+'</td><td id="sgname">'+student.gname+'</td><td id="sgoccup">'+student.goccup+'</td><td id="gphone">'+student.gphone+'</td><td id="sphone">'+student.sphone+'</td><td id="sdob">'+student.sdob+'</td><td id="sblood">'+student.sblood+'</td><td><a  href="#" id="editbtn">Edit</a></td></tr>';
-	            	var view_table2 ='<tr><td>'+student.sclass+'</td><td>'+student.ssection+'</td><td>'+student.sgroup+'</td><td>'+student.sshift+'</td><td><a href="#" id="editbtn" >Edit</a></td></tr>';
-	            	//var view_table3 ='<tr><td>'+student.speradd+'</td><td>'+student.spreadd+'</td><td><a href="#" id="editbtn">Edit</a></td></tr>';
+	            	var view_table1 ='<tr><td id="id">'+student.id+'</td><td id="fname">'+student.fname+'</td><td id="lname">'+student.lname+'</td><td id="sgname">'+student.gname+'</td><td id="sgoccup">'+student.goccup+'</td><td id="gphone">'+student.gphone+'</td><td id="sphone">'+student.sphone+'</td><td id="sdob">'+student.sdob+'</td><td id="sblood">'+student.sblood+'</td><td><a  href="#" id="editbtn">Edit</a></td></tr>';
+	            	var view_table2 ='<tr><td>'+student.sclass+'</td><td>'+student.ssection+'</td><td>'+student.sgroup+'</td><td>'+student.sshift+'</td><td><a href="#" id="editbtn2" >Edit</a></td></tr>';
+	            	var view_table3 ='<tr><td>'+student.speradd+'</td><td>'+student.spreadd+'</td><td><a href="#" id="editbtn3">Edit</a></td></tr>';
 	            	 
 
 	            	//$('#view_table1').replaceWith(table1);
 	            	
+	            	$("#table1 tbody tr:first-child").remove();
 	            	$("#table2 tbody tr:first-child").remove();
-	            	
-	            	
+	            	$("#table3 tbody tr:first-child").remove();
+	            	$('#table1').append(view_table1);
 	            	$('#table2').append(view_table2);
+	            	$('#table3').append(view_table3);
 	            	
 	            	
 	            	
@@ -325,6 +304,69 @@
 	            	$("#tableB").show();
 	            	
 	            	$("#tableE").hide();
+
+	            	
+	            //$('#myModal').modal('show');
+
+	            		
+	            	
+
+	            },
+	            error: function(err){
+
+	            }
+
+
+
+	        });
+
+		
+	});
+
+	$(document).on('click','#savebtn3',function(){
+
+			//event.preventDefault();
+			id = $('#table1 tr').find('td:eq(0)').text();
+			//alert(id);
+			var formData = {
+	            'spreadd': $('input[name=spreadd1]').val(),
+	            'speradd': $('input[name=speradd1]').val(),
+	            '_token': "{{csrf_token()}}",
+	        };
+
+
+	        $.ajax({
+	            type        : 'PUT', // define the type of HTTP verb we want to use (POST for our form)
+	            url         : 'show_info2/' +id, // the url where we want to POST
+	            data        : formData, // our data object
+	            dataType    : 'json', // what type of data do we expect back from the server
+	            success: function(data){
+
+
+                    
+
+	            	console.log(data);
+	            	student = data;
+	            	var view_table1 ='<tr><td id="id">'+student.id+'</td><td id="fname">'+student.fname+'</td><td id="lname">'+student.lname+'</td><td id="sgname">'+student.gname+'</td><td id="sgoccup">'+student.goccup+'</td><td id="gphone">'+student.gphone+'</td><td id="sphone">'+student.sphone+'</td><td id="sdob">'+student.sdob+'</td><td id="sblood">'+student.sblood+'</td><td><a  href="#" id="editbtn">Edit</a></td></tr>';
+	            	var view_table2 ='<tr><td>'+student.sclass+'</td><td>'+student.ssection+'</td><td>'+student.sgroup+'</td><td>'+student.sshift+'</td><td><a href="#" id="editbtn2" >Edit</a></td></tr>';
+	            	var view_table3 ='<tr><td>'+student.speradd+'</td><td>'+student.spreadd+'</td><td><a href="#" id="editbtn3">Edit</a></td></tr>';
+	            	 
+
+	            	//$('#view_table1').replaceWith(table1);
+	            	
+	            	$("#table1 tbody tr:first-child").remove();
+	            	$("#table2 tbody tr:first-child").remove();
+	            	$("#table3 tbody tr:first-child").remove();
+	            	$('#table1').append(view_table1);
+	            	$('#table2').append(view_table2);
+	            	$('#table3').append(view_table3);
+	            	
+	            	
+	            	
+
+	            	$("#tableC").show();
+	            	
+	            	$("#tableF").hide();
 
 	            	
 	            //$('#myModal').modal('show');
@@ -590,12 +632,13 @@
 					</div>
 					</form>
 
+					
 					<form>
 						
 					
 					<div class="table-responsive" id="tableE" style="display: none">    
 						<div class="pinformation" id="pinformation">
-							   <h1>Personal Information (Please Update your Information)</h1>
+							   <h1>Educational Information (Please Update your Information)</h1>
 						</div>
 						<table class="table" id="table5">
 							<thead>
@@ -619,6 +662,33 @@
 						</table>
 					</div>
 					</form>
+					<form>
+						
+					
+					<div class="table-responsive" id="tableF" style="display: none">    
+						<div class="pinformation" id="pinformation">
+							   <h1>Address (Please Update your Information)</h1>
+						</div>
+						<table class="table" id="table6">
+							<thead>
+								<tr>
+									<th>Registration id</th>
+									<th>Present Address</th>
+									<th>Permanent Address</th>
+									<th>Save</th>       
+								</tr>
+							</thead>
+							<tbody><tr><td><input type="number" name="id3" class="form-control" disabled="true" value="disabled" ></td>
+							 			<td><input type="text" name="spreadd1" class="form-control"></td>
+							 			<td><input type="text" name="speradd1" class="form-control"></td>
+							 			
+							 			<td><button type="button" id="savebtn3" class="form-control" name="submit" value="Save">Save</button></td>
+							 		</tr> 
+							 </tbody>
+						</table>
+					</div>
+					</form>
+
 				</div>
 			</div>
 		</div>

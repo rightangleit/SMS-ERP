@@ -24,6 +24,7 @@ Route::get('/search_result', function () {
     return view('Admin.search_result');
 });
 Route::post('/show_info', 'AdminController@show');
+Route::PUT('/show_info2/{show_info2}', 'AdminController@update2');
 Route::PUT('/show_info1/{show_info1}', 'AdminController@update1');
 Route::PUT('/show_info/{show_info}', 'AdminController@update');
 

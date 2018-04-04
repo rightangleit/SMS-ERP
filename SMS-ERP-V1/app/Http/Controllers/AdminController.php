@@ -177,6 +177,23 @@ class AdminController extends Controller
              return response()->json($student);
         
     }
+    public function update2(Request $request, $id)
+    {
+       
+            //return $request;            
+            $student = student::find($id);
+            $student->spreadd = $request->get('speradd');
+            $student->speradd = $request->get('spreadd');
+          
+            
+           
+            $stu = $student->save(); 
+            //return view('Admin.show_info',compact('student'));
+            //return $student;
+            
+             return response()->json($student);
+        
+    }
 
     /**
      * Remove the specified resource from storage.
