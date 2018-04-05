@@ -98,11 +98,15 @@
 	            dataType    : 'json', // what type of data do we expect back from the server
 	            success: function(data){
 
+<<<<<<< HEAD
 	            	//console.log(data[]);
+=======
+	            	//console.log(data[0]);
+>>>>>>> parent of a2408b6... educational info update done
 	            	student = data[0];
-	            	var view_table1 ='<tr id="1st_tr"><td id="sid">'+student.id+'</td><td id="fname">'+student.fname+'</td><td id="lname">'+student.lname+'</td><td id="sgname">'+student.gname+'</td><td id="sgoccup">'+student.goccup+'</td><td id="gphone">'+student.gphone+'</td><td id="sphone">'+student.sphone+'</td><td id="sdob">'+student.sdob+'</td><td id="sblood">'+student.sblood+'</td><td><a  href="#" id="editbtn">Edit</a></td></tr>';
-	            	var view_table2 ='<tr><td>'+student.sclass+'</td><td>'+student.ssection+'</td><td>'+student.sgroup+'</td><td>'+student.sshift+'</td><td><a href="#" id="editbtn2" >Edit</a></td></tr>';
-	            	var view_table3 ='<tr><td>'+student.speradd+'</td><td>'+student.spreadd+'</td><td><a href="#" id="editbtn3">Edit</a></td></tr>';
+	            	var view_table1 ='<tr><td>'+student.id+'</td><td id="fname">'+student.fname+'</td><td id="lname">'+student.lname+'</td><td id="sgname">'+student.gname+'</td><td id="sgoccup">'+student.goccup+'</td><td id="gphone">'+student.gphone+'</td><td id="sphone">'+student.sphone+'</td><td id="sdob">'+student.sdob+'</td><td id="sblood">'+student.sblood+'</td><td><a  href="#" id="editbtn">Edit</a></td></tr>';
+	            	var view_table2 ='<tr><td>'+student.sclass+'</td><td>'+student.ssection+'</td><td>'+student.sgroup+'</td><td>'+student.sshift+'</td><td><a href="#" id="editbtn" >Edit</a></td></tr>';
+	            	var view_table3 ='<tr><td>'+student.speradd+'</td><td>'+student.spreadd+'</td><td><a href="#" id="editbtn">Edit</a></td></tr>';
 	            	//$('.modal-body').html(response):/
 
 	            	$('#table1').append(view_table1);
@@ -173,6 +177,7 @@
 
 		
 	});
+<<<<<<< HEAD
 	$(document).on('click','#editbtn2',function(){
 		
 			var tr = $(this).closest('tr');
@@ -211,13 +216,20 @@
 			$("input[name='spreadd1']").val(preadd);
 			$("input[name='speradd1']").val(peradd);
 			
+=======
+>>>>>>> parent of a2408b6... educational info update done
 
+	$(document).on('click','#savebtn',function(){
 		
+<<<<<<< HEAD
 	});
 
 	function updatePInfo(){
   
 			//event.preventDefault();b
+=======
+			//event.preventDefault();
+>>>>>>> parent of a2408b6... educational info update done
 			id = $('input[name=id1]').val()
 
 			var formData = {
@@ -230,6 +242,10 @@
 	            'sphone': $('input[name=sphone1]').val(),
 	            'sdob': $('input[name=sdob1]').val(),
 	            'sblood': $('input[name=sblood1]').val(),
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of a2408b6... educational info update done
 	            '_token': "{{csrf_token()}}",
 	        };
 
@@ -244,13 +260,16 @@
 
                     
 
-	            	//console.log(data);
-	            	//console.log(data1);
+	            	console.log(data);
 	            	student = data;
-	            	//s=data1;
 	            	var view_table1 ='<tr><td id="id">'+student.id+'</td><td id="fname">'+student.fname+'</td><td id="lname">'+student.lname+'</td><td id="sgname">'+student.gname+'</td><td id="sgoccup">'+student.goccup+'</td><td id="gphone">'+student.gphone+'</td><td id="sphone">'+student.sphone+'</td><td id="sdob">'+student.sdob+'</td><td id="sblood">'+student.sblood+'</td><td><a  href="#" id="editbtn">Edit</a></td></tr>';
+<<<<<<< HEAD
 	            	var view_table2 ='<tr><td>'+student.sclass+'</td><td>'+student.ssection+'</td><td>'+student.sgroup+'</td><td>'+student.sshift+'</td><td><a href="#" id="editbtn2" >Edit</a></td></tr>';
 	            	var view_table3 ='<tr><td>'+student.speradd+'</td><td>'+student.spreadd+'</td><td><a href="#" id="editbtn3">Edit</a></td></tr>';
+=======
+	            	var view_table2 ='<tr><td>'+student.sclass+'</td><td>'+student.ssection+'</td><td>'+student.sgroup+'</td><td>'+student.sshift+'</td><td><a href="#" id="editbtn" >Edit</a></td></tr>';
+	            	var view_table3 ='<tr><td>'+student.speradd+'</td><td>'+student.spreadd+'</td><td><a href="#" id="editbtn">Edit</a></td></tr>';
+>>>>>>> parent of a2408b6... educational info update done
 	            	 
 
 	            	//$('#view_table1').replaceWith(table1);
@@ -264,7 +283,6 @@
 	            	
 
 	            	$("#tableA").show();
-	            	
 	            	$("#tableD").hide();
 
 	            	
@@ -282,6 +300,7 @@
 
 	        });
 
+<<<<<<< HEAD
 	}
 
 	function updateEinfo(){
@@ -417,6 +436,9 @@
 
 	$(document).on('click','#savebtn3',function(){
 		updateAinfo();	
+=======
+		
+>>>>>>> parent of a2408b6... educational info update done
 	});
 	</script>
 </head>
@@ -1480,7 +1502,7 @@
 									<th>Class</th>
 									<th>Section</th>
 									<th>Group</th>
-									<th>Shift</th>
+										<th>Shift</th>
 									<th>Edit</th>
 								</tr>
 							</thead>
@@ -1540,6 +1562,7 @@
 						</table>
 					</div>
 					</form>
+<<<<<<< HEAD
 
 					
 					<form>
@@ -1598,6 +1621,8 @@
 					</div>
 					</form>
 
+=======
+>>>>>>> parent of a2408b6... educational info update done
 				</div>
 			</div>
 		</div>
