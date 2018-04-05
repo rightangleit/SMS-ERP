@@ -7,11 +7,14 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('/css/bootstrap/css/bootstrap-theme.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('/css/bootstrap/css/bootstrap-theme.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('/css/font-awesome.min.css')}}">
-	
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<script type="text/javascript" src="{{asset('/js/jquery.js')}}"></script>
 
   	
+  	
   	<script type="text/javascript" src="{{asset('/js/bootstrap.min.js')}}"></script>
+
+	
 	
 	<link rel="stylesheet" type="text/css" href="{{asset('/css/style1.css')}}">
 	<meta name="viewport" content="width=device-width, 
@@ -38,6 +41,21 @@
 	      document.getElementById(ten).style.display = 'none';
 	      document.getElementById(eleven).style.display = 'none';
 	      document.getElementById(twelve).style.display = 'none';
+	    }
+	    function showTable1(one,second,three,four,five,six,seven,eight,nine,ten,eleven,twelve)
+	    {
+	      document.getElementById(one).style.display = 'block';
+	      document.getElementById(second).style.display = 'none';
+	      document.getElementById(three).style.display = 'none';
+	      document.getElementById(four).style.display = 'none';
+	      document.getElementById(five).style.display = 'none';
+	      document.getElementById(six).style.display = 'none';
+	      document.getElementById(seven).style.display = 'none';
+	      document.getElementById(eight).style.display = 'none';
+	      document.getElementById(nine).style.display = 'none';
+	      document.getElementById(ten).style.display = 'none';
+	      document.getElementById(eleven).style.display = 'none';
+	      document.getElementById(twelve).style.display = 'none';
 	    }	
 	    function showTable1(one)
 	    {
@@ -49,7 +67,7 @@
 	    {
 	      document.getElementById(one).style.display = 'block';
 	      document.getElementById(two).style.display = 'none';
-	       document.getElementById(three).style.display = 'none';
+	      document.getElementById(three).style.display = 'none';
 	      
 	      
 	    }
@@ -197,7 +215,7 @@
 		
 	});
 
-	function updateInfo(){
+	function updatePInfo(){
   
 			//event.preventDefault();b
 			id = $('input[name=id1]').val()
@@ -266,17 +284,8 @@
 
 	}
 
-	$(document).on('click','#savebtn',function(){
-		updateInfo();
-	});
-/*
-	$(document).on('click','#savebtn2',function(){
-		updateInfo();
-	});*/
-
-		$(document).on('click','#savebtn2',function(){
-
-			//event.preventDefault();
+	function updateEinfo(){
+		//event.preventDefault();
 			id = $('#table1 tr').find('td:eq(0)').text();
 			//alert(id);
 			var formData = {
@@ -336,13 +345,11 @@
 
 	        });
 
-		
-	});
 
-	$(document).on('click','#savebtn3',function(){
+	}
 
-			//event.preventDefault();
-			id = $('#table1 tr').find('td:eq(0)').text();
+	function updateAinfo(){
+		id = $('#table1 tr').find('td:eq(0)').text();
 			//alert(id);
 			var formData = {
 	            'spreadd': $('input[name=spreadd1]').val(),
@@ -398,8 +405,18 @@
 
 
 	        });
+	}
 
-		
+	$(document).on('click','#savebtn',function(){
+		updatePInfo();
+	});
+
+	$(document).on('click','#savebtn2',function(){
+		updateEinfo();
+	});
+
+	$(document).on('click','#savebtn3',function(){
+		updateAinfo();	
 	});
 	</script>
 </head>
@@ -531,31 +548,31 @@
 								Class Eight
 								</button>
 								<button type="submit"  id="button3" name="submit" class="btn-lg btn-primary buttons" 
-								onClick="showTable('c9S','c6','c8','c8','c9C','c9A','c10S','c10C','c10A','sE','c6E','c6A')">
+								onClick="showTable('c9S','c6','c7','c8','c9C','c9A','c10S','c10C','c10A','sE','c6E','c6A')">
 								Class Nine(Science)
 								</button>
 								<button type="submit"  id="button3" name="submit" class="btn-lg btn-primary buttons" 
-								onClick="showTable('c9C','c6','c8','c8','c9S','c9A','c10S','c10C','c10A','sE','c6E','c6A')">
+								onClick="showTable('c9C','c6','c7','c8','c9S','c9A','c10S','c10C','c10A','sE','c6E','c6A')">
 								Class Nine(Commerce)
 								</button>
 								<button type="submit"  id="button3" name="submit" class="btn-lg btn-primary buttons" 
-								onClick="showTable('c9A','c6','c8','c8','c9S','c9C','c10S','c10C','c10A','sE','c6E','c6A')">
+								onClick="showTable('c9A','c6','c7','c8','c9S','c9C','c10S','c10C','c10A','sE','c6E','c6A')">
 								Class Nine(Arts)
 								</button>
 								<button type="submit"  id="button3" name="submit" class="btn-lg btn-primary buttons" 
-								onClick="showTable('c10S','c6','c8','c8','c9C','c9A','c9S','c10C','c10A','sE','c6E','c6A')">
+								onClick="showTable('c10S','c6','c7','c8','c9S','c9A','c9C','c10C','c10A','sE','c6E','c6A')">
 								Class Ten(Science)
 								</button>
 								<button type="submit"  id="button3" name="submit" class="btn-lg btn-primary buttons" 
-								onClick="showTable('c10C','c6','c8','c8','c9S','c9A','c10S','c9C','c10A','sE','c6E','c6A')">
+								onClick="showTable('c10C','c6','c7','c8','c9S','c9A','c9C','c10S','c10A','sE','c6E','c6A')">
 								Class Ten(Commerce)
 								</button>
 								<button type="submit"  id="button3" name="submit" class="btn-lg btn-primary buttons" 
-								onClick="showTable('c10A','c6','c8','c8','c9C','c9A','c10S','c10C','c9S','sE','c6E','c6A')">
+								onClick="showTable('c10A','c6','c7','c8','c9S','c9C','c9A','c10S','c10C','sE','c6E','c6A')">
 								Class Ten(Arts)
 								</button>
 								<button type="submit"  id="button3" name="submit" class="btn-lg btn-primary buttons" 
-								onClick="showTable('sE','c6','c8','c8','c9C','c9A','c10S','c10C','c9S','c10A','c6E','c6A')">
+								onClick="showTable('sE','c6','c7','c8','c9S','c9C','c9A','c10S','c10C','c10A','c6E','c6A')">
 								Update Information
 								</button>
 
@@ -1195,7 +1212,7 @@
 							  </table>
 							</div>
 							</div>
-							<div class=" " id="c10S" style="display: none;" >
+							<div class=" " id="c10C" style="display: none;" >
 								<div class="pinformation">
 						    	<h1>Personal Information</h1>
 						        </div>
@@ -1286,7 +1303,7 @@
 							  </table>
 							</div>
 							</div>
-							<div class=" " id="c10C" style="display: none;" >
+							<div class=" " id="c10A" style="display: none;" >
 								<div class="pinformation">
 						    	<h1>Personal Information</h1>
 						        </div>
