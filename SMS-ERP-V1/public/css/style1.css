@@ -433,7 +433,10 @@ body{
  .selectcode{
  	width: 100%;
  }
-
+#sE{
+	margin-left: 271px;
+    margin-top: -192px;
+}
  #row_form{
  	width: 67%;
 	margin: -1em auto;
