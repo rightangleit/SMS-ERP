@@ -24,11 +24,9 @@ Route::get('/search_result', function () {
     return view('Admin.search_result');
 });
 Route::post('/show_info', 'AdminController@show');
-<<<<<<< HEAD
+
 Route::PUT('/show_info2/{show_info2}', 'AdminController@update2');
 Route::PUT('/show_info1/{show_info1}', 'AdminController@update1');
-=======
->>>>>>> parent of a2408b6... educational info update done
 Route::PUT('/show_info/{show_info}', 'AdminController@update');
 Route::get('/show_info', 'AdminController@show');
 Route::get('/show_result', function () {

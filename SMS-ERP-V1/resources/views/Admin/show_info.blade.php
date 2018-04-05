@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('/css/bootstrap/css/bootstrap-theme.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('/css/bootstrap/css/bootstrap-theme.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('/css/font-awesome.min.css')}}">
-	<meta name="csrf-token" content="{{ csrf_token() }}">
+	
 	<script type="text/javascript" src="{{asset('/js/jquery.js')}}"></script>
 
   	
@@ -27,50 +27,22 @@
     </script>
   
     <script type="text/javascript">
-      	function showTable(one,second,three,four,five,six,seven,eight,nine,ten,eleven,twelve)
+      	function showTable(one,second,three)
 	    {
 	      document.getElementById(one).style.display = 'block';
 	      document.getElementById(second).style.display = 'none';
 	      document.getElementById(three).style.display = 'none';
-	      document.getElementById(four).style.display = 'none';
-	      document.getElementById(five).style.display = 'none';
-	      document.getElementById(six).style.display = 'none';
-	      document.getElementById(seven).style.display = 'none';
-	      document.getElementById(eight).style.display = 'none';
-	      document.getElementById(nine).style.display = 'none';
-	      document.getElementById(ten).style.display = 'none';
-	      document.getElementById(eleven).style.display = 'none';
-	      document.getElementById(twelve).style.display = 'none';
+	      
+	      
 	    }
-	    function showTable1(one,second,three,four,five,six,seven,eight,nine,ten,eleven,twelve)
-	    {
-	      document.getElementById(one).style.display = 'block';
-	      document.getElementById(second).style.display = 'none';
-	      document.getElementById(three).style.display = 'none';
-	      document.getElementById(four).style.display = 'none';
-	      document.getElementById(five).style.display = 'none';
-	      document.getElementById(six).style.display = 'none';
-	      document.getElementById(seven).style.display = 'none';
-	      document.getElementById(eight).style.display = 'none';
-	      document.getElementById(nine).style.display = 'none';
-	      document.getElementById(ten).style.display = 'none';
-	      document.getElementById(eleven).style.display = 'none';
-	      document.getElementById(twelve).style.display = 'none';
-	    }	
+	    	
 	    function showTable1(one)
 	    {
 	      document.getElementById(one).style.display = 'block';
 	      
 	      
 	    }
-	    function showTable2(one,two,three,four)
-	    {
-	      document.getElementById(one).style.display = 'block';
-	      document.getElementById(two).style.display = 'none';
-	      document.getElementById(three).style.display = 'none';
-	      
-	      
-	    }
+	    
 	</script>
 
 	<script type="text/javascript">
@@ -98,15 +70,11 @@
 	            dataType    : 'json', // what type of data do we expect back from the server
 	            success: function(data){
 
-<<<<<<< HEAD
 	            	//console.log(data[]);
-=======
-	            	//console.log(data[0]);
->>>>>>> parent of a2408b6... educational info update done
 	            	student = data[0];
-	            	var view_table1 ='<tr><td>'+student.id+'</td><td id="fname">'+student.fname+'</td><td id="lname">'+student.lname+'</td><td id="sgname">'+student.gname+'</td><td id="sgoccup">'+student.goccup+'</td><td id="gphone">'+student.gphone+'</td><td id="sphone">'+student.sphone+'</td><td id="sdob">'+student.sdob+'</td><td id="sblood">'+student.sblood+'</td><td><a  href="#" id="editbtn">Edit</a></td></tr>';
-	            	var view_table2 ='<tr><td>'+student.sclass+'</td><td>'+student.ssection+'</td><td>'+student.sgroup+'</td><td>'+student.sshift+'</td><td><a href="#" id="editbtn" >Edit</a></td></tr>';
-	            	var view_table3 ='<tr><td>'+student.speradd+'</td><td>'+student.spreadd+'</td><td><a href="#" id="editbtn">Edit</a></td></tr>';
+	            	var view_table1 ='<tr id="1st_tr"><td id="sid">'+student.id+'</td><td id="fname">'+student.fname+'</td><td id="lname">'+student.lname+'</td><td id="sgname">'+student.gname+'</td><td id="sgoccup">'+student.goccup+'</td><td id="gphone">'+student.gphone+'</td><td id="sphone">'+student.sphone+'</td><td id="sdob">'+student.sdob+'</td><td id="sblood">'+student.sblood+'</td><td><a  href="#" id="editbtn">Edit</a></td></tr>';
+	            	var view_table2 ='<tr><td>'+student.sclass+'</td><td>'+student.ssection+'</td><td>'+student.sgroup+'</td><td>'+student.sshift+'</td><td><a href="#" id="editbtn2" >Edit</a></td></tr>';
+	            	var view_table3 ='<tr><td>'+student.speradd+'</td><td>'+student.spreadd+'</td><td><a href="#" id="editbtn3">Edit</a></td></tr>';
 	            	//$('.modal-body').html(response):/
 
 	            	$('#table1').append(view_table1);
@@ -177,7 +145,6 @@
 
 		
 	});
-<<<<<<< HEAD
 	$(document).on('click','#editbtn2',function(){
 		
 			var tr = $(this).closest('tr');
@@ -216,20 +183,13 @@
 			$("input[name='spreadd1']").val(preadd);
 			$("input[name='speradd1']").val(peradd);
 			
-=======
->>>>>>> parent of a2408b6... educational info update done
 
-	$(document).on('click','#savebtn',function(){
 		
-<<<<<<< HEAD
 	});
 
 	function updatePInfo(){
   
 			//event.preventDefault();b
-=======
-			//event.preventDefault();
->>>>>>> parent of a2408b6... educational info update done
 			id = $('input[name=id1]').val()
 
 			var formData = {
@@ -242,10 +202,6 @@
 	            'sphone': $('input[name=sphone1]').val(),
 	            'sdob': $('input[name=sdob1]').val(),
 	            'sblood': $('input[name=sblood1]').val(),
-<<<<<<< HEAD
-=======
-
->>>>>>> parent of a2408b6... educational info update done
 	            '_token': "{{csrf_token()}}",
 	        };
 
@@ -260,16 +216,13 @@
 
                     
 
-	            	console.log(data);
+	            	//console.log(data);
+	            	//console.log(data1);
 	            	student = data;
+	            	//s=data1;
 	            	var view_table1 ='<tr><td id="id">'+student.id+'</td><td id="fname">'+student.fname+'</td><td id="lname">'+student.lname+'</td><td id="sgname">'+student.gname+'</td><td id="sgoccup">'+student.goccup+'</td><td id="gphone">'+student.gphone+'</td><td id="sphone">'+student.sphone+'</td><td id="sdob">'+student.sdob+'</td><td id="sblood">'+student.sblood+'</td><td><a  href="#" id="editbtn">Edit</a></td></tr>';
-<<<<<<< HEAD
 	            	var view_table2 ='<tr><td>'+student.sclass+'</td><td>'+student.ssection+'</td><td>'+student.sgroup+'</td><td>'+student.sshift+'</td><td><a href="#" id="editbtn2" >Edit</a></td></tr>';
 	            	var view_table3 ='<tr><td>'+student.speradd+'</td><td>'+student.spreadd+'</td><td><a href="#" id="editbtn3">Edit</a></td></tr>';
-=======
-	            	var view_table2 ='<tr><td>'+student.sclass+'</td><td>'+student.ssection+'</td><td>'+student.sgroup+'</td><td>'+student.sshift+'</td><td><a href="#" id="editbtn" >Edit</a></td></tr>';
-	            	var view_table3 ='<tr><td>'+student.speradd+'</td><td>'+student.spreadd+'</td><td><a href="#" id="editbtn">Edit</a></td></tr>';
->>>>>>> parent of a2408b6... educational info update done
 	            	 
 
 	            	//$('#view_table1').replaceWith(table1);
@@ -283,6 +236,7 @@
 	            	
 
 	            	$("#tableA").show();
+	            	
 	            	$("#tableD").hide();
 
 	            	
@@ -300,7 +254,6 @@
 
 	        });
 
-<<<<<<< HEAD
 	}
 
 	function updateEinfo(){
@@ -436,9 +389,6 @@
 
 	$(document).on('click','#savebtn3',function(){
 		updateAinfo();	
-=======
-		
->>>>>>> parent of a2408b6... educational info update done
 	});
 	</script>
 </head>
@@ -556,878 +506,7 @@
 		<div class="row" id="row_form">
 
 					<!-- <h1 class="title">Personal Information</h1> -->
-					<div class="col-sm-12 col-md-12" id="row_1st_col" style="">
-							<form class="form-horizontal fixed" id="form-horizontal" method="post" action="{{url('/stu_info_new')}}">
-								{{csrf_field()}}
-								<button type="submit" id="button1" name="submit" class="btn-lg btn-primary buttons" 
-								onClick="showTable('c6','c7','c8','c9S','c9C','c9A','c10S','c10C','c10A','sE','c6E','c6A')">Class Six
-								</button>
-								<button type="submit"  id="button2" name="submit" class="btn-lg btn-primary buttons" data-toggle="" data-target=""  
-									onClick="showTable('c7','c6','c8','c9S','c9C','c9A','c10S','c10C','c10A','sE','c6E','c6A')">Class Seven
-								</button>
-								<button type="submit"  id="button3" name="submit" class="btn-lg btn-primary buttons" 
-								onClick="showTable('c8','c6','c7','c9S','c9C','c9A','c10S','c10C','c10A', 'sE','c6E','c6A')">
-								Class Eight
-								</button>
-								<button type="submit"  id="button3" name="submit" class="btn-lg btn-primary buttons" 
-								onClick="showTable('c9S','c6','c7','c8','c9C','c9A','c10S','c10C','c10A','sE','c6E','c6A')">
-								Class Nine(Science)
-								</button>
-								<button type="submit"  id="button3" name="submit" class="btn-lg btn-primary buttons" 
-								onClick="showTable('c9C','c6','c7','c8','c9S','c9A','c10S','c10C','c10A','sE','c6E','c6A')">
-								Class Nine(Commerce)
-								</button>
-								<button type="submit"  id="button3" name="submit" class="btn-lg btn-primary buttons" 
-								onClick="showTable('c9A','c6','c7','c8','c9S','c9C','c10S','c10C','c10A','sE','c6E','c6A')">
-								Class Nine(Arts)
-								</button>
-								<button type="submit"  id="button3" name="submit" class="btn-lg btn-primary buttons" 
-								onClick="showTable('c10S','c6','c7','c8','c9S','c9A','c9C','c10C','c10A','sE','c6E','c6A')">
-								Class Ten(Science)
-								</button>
-								<button type="submit"  id="button3" name="submit" class="btn-lg btn-primary buttons" 
-								onClick="showTable('c10C','c6','c7','c8','c9S','c9A','c9C','c10S','c10A','sE','c6E','c6A')">
-								Class Ten(Commerce)
-								</button>
-								<button type="submit"  id="button3" name="submit" class="btn-lg btn-primary buttons" 
-								onClick="showTable('c10A','c6','c7','c8','c9S','c9C','c9A','c10S','c10C','sE','c6E','c6A')">
-								Class Ten(Arts)
-								</button>
-								<button type="submit"  id="button3" name="submit" class="btn-lg btn-primary buttons" 
-								onClick="showTable('sE','c6','c7','c8','c9S','c9C','c9A','c10S','c10C','c10A','c6E','c6A')">
-								Update Information
-								</button>
-
-								<br>
-
-								
-								<div class=" " id="c6" style="display: none;" >
-								
-						        
-						    	<div class="table-responsive">          
-							  <table class="table">
-								<thead>
-								<div class="pinformation">
-						    		<a href="#" onclick="showTable2('c6','c6E','c6A')">Personal Information</a>
-						    		<a href="#" onclick="showTable2('c6E','c6','c6A')">Educational Information</a>
-						    		<a href="#" onclick="showTable2('c6A','c6','c6E')">Address</a>
-						        </div>
-								      <tr>
-								        <th>Registration Id</th>
-								        <th>Firstname</th>
-								        <th>Lastname</th>
-								        <th>Guardian Name</th>
-								        <th>Guardian Phone Number</th>
-								        <th>Guardian Occupation</th>
-								        <th>Student Phone Number</th>
-								        <th>Date of Birth</th>
-								        <th>Blood Group</th>
-								        
-								      </tr>
-								    </thead>
-								    <tbody>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								        
-								      </tr>
-								      <tr>
-								        <td>2</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								    </tbody>
-							  </table>
-							</div>
-							</div>
-							<div class=" " id="c6E" style="display: none;" >
-								
-						        
-						    	<div class="table-responsive">          
-							  <table class="table">
-								<thead>
-								<div class="pinformation">
-						    		<a href="#" onclick="showTable2('c6','c6E','c6A')">Personal Information</a>
-						    		<a href="#" onclick="showTable2('c6E','c6','c6A')">Educational Information</a>
-						    		<a href="#" onclick="showTable2('c6A','c6','c6E')">Address</a>
-						        </div>
-								      <tr>
-								        <th>Registration Id</th>
-								        <th>Firstname</th>
-								        <th>Lastname</th>
-								        <th>Last School</th>
-								        <th>Class</th>
-								        <th>Section</th>
-								        <th>Shift</th>
-								        <th>Attendance Status</th>
-								        <th>Merit Status</th>
-								        <th>Scholahship Status</th>
-								        <th>Scholar ID</th>
-								        
-
-								        
-								        
-								      </tr>
-								    </thead>
-								    <tbody>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>Govt. Lab</td>
-								        <td>Six</td>
-								        <td>A</td>
-								        <td>Morning</td>
-								        <td>85%</td>
-								        <td>5th Position</td>
-								        <td>No</td>
-								        <td>1210</td>
-								        
-								      </tr>
-								      
-								    </tbody>
-							  </table>
-							</div>
-							</div>
-							<div class=" " id="c6A" style="display: none;" >
-								
-						        
-						    	<div class="table-responsive">          
-							  <table class="table">
-								<thead>
-								<div class="pinformation">
-						    		<a href="#" onclick="showTable2('c6','c6E','c6A')">Personal Information</a>
-						    		<a href="#" onclick="showTable2('c6E','c6','c6A')">Educational Information</a>
-						    		<a href="#" onclick="showTable2('c6A','c6','c6E')">Address</a>
-						        </div>
-								      <tr>
-								        <th>Registration Id</th>
-								        <th>Firstname</th>
-								        <th>Lastname</th>
-								        <th>Present Address</th>
-								        <th>Permanent Adress</th>
-								        
-								        
-
-								        
-								        
-								   </tr>
-								    </thead>
-								    <tbody>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td><textarea rows="5" cols="30"></textarea></td>
-								        <td><textarea rows="5" cols="30"></textarea></td>
-								        
-								        
-								      </tr>
-								      
-								    </tbody>
-							  </table>
-							</div>
-							</div>
-							<div class=" " id="c7" style="display: none;" >
-								<div class="pinformation">
-						    	<h1>Personal Information</h1>
-						        </div>
-						        
-						    	<div class="table-responsive">          
-							  <table class="table">
-								    <thead>
-								      <tr>
-								        <th>Registration Id</th>
-								        <th>Firstname</th>
-								        <th>Lastname</th>
-								        <th>Guardian Name</th>
-								        <th>Guardian Phone Number</th>
-								        <th>Guardian Occupation</th>
-								        <th>Student Phone Number</th>
-								        <th>Date of Birth</th>
-								        <th>Blood Group</th>
-								      </tr>
-								    </thead>
-								    <tbody>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								     
-								    </tbody>
-							  </table>
-							</div>
-							</div>
-							<div class=" " id="c8" style="display: none;" >
-								<div class="pinformation">
-						    	<h1>Personal Information</h1>
-						        </div>
-						        
-						    	<div class="table-responsive">          
-							  <table class="table">
-								    <thead>
-								      <tr>
-								        <th>Registration Id</th>
-								        <th>Firstname</th>
-								        <th>Lastname</th>
-								        <th>Guardian Name</th>
-								        <th>Guardian Phone Number</th>
-								        <th>Guardian Occupation</th>
-								        <th>Student Phone Number</th>
-								        <th>Date of Birth</th>
-								        <th>Blood Group</th>
-								      </tr>
-								    </thead>
-								    <tbody>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>2</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      
-								    </tbody>
-							  </table>
-							</div>
-							</div>
-							<div class=" " id="c9S" style="display: none;" >
-								<div class="pinformation">
-						    	<h1>Personal Information</h1>
-						        </div>
-						        
-						    	<div class="table-responsive">          
-							  <table class="table">
-								    <thead>
-								      <tr>
-								        <th>Registration Id</th>
-								        <th>Firstname</th>
-								        <th>Lastname</th>
-								        <th>Guardian Name</th>
-								        <th>Guardian Phone Number</th>
-								        <th>Guardian Occupation</th>
-								        <th>Student Phone Number</th>
-								        <th>Date of Birth</th>
-								        <th>Blood Group</th>
-								      </tr>
-								    </thead>
-								    <tbody>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>2</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								    </tbody>
-							  </table>
-							</div>
-							</div>
-							<div class=" " id="c9C" style="display: none;" >
-								<div class="pinformation">
-						    	<h1>Personal Information</h1>
-						        </div>
-						        
-						    	<div class="table-responsive">          
-							  <table class="table">
-								    <thead>
-								      <tr>
-								        <th>Registration Id</th>
-								        <th>Firstname</th>
-								        <th>Lastname</th>
-								        <th>Guardian Name</th>
-								        <th>Guardian Phone Number</th>
-								        <th>Guardian Occupation</th>
-								        <th>Student Phone Number</th>
-								        <th>Date of Birth</th>
-								        <th>Blood Group</th>
-								      </tr>
-								    </thead>
-								    <tbody>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>2</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								    </tbody>
-							  </table>
-							</div>
-							</div>
-							<div class=" " id="c9A" style="display: none;" >
-								<div class="pinformation">
-						    	<h1>Personal Information</h1>
-						        </div>
-						        
-						    	<div class="table-responsive">          
-							  <table class="table">
-								    <thead>
-								      <tr>
-								        <th>Registration Id</th>
-								        <th>Firstname</th>
-								        <th>Lastname</th>
-								        <th>Guardian Name</th>
-								        <th>Guardian Phone Number</th>
-								        <th>Guardian Occupation</th>
-								        <th>Student Phone Number</th>
-								        <th>Date of Birth</th>
-								        <th>Blood Group</th>
-								      </tr>
-								    </thead>
-								    <tbody>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>2</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								    </tbody>
-							  </table>
-							</div>
-							</div>
-							<div class=" " id="c10S" style="display: none;" >
-								<div class="pinformation">
-						    	<h1>Personal Information</h1>
-						        </div>
-						        
-						    	<div class="table-responsive">          
-							  <table class="table">
-								    <thead>
-								      <tr>
-								        <th>Registration Id</th>
-								        <th>Firstname</th>
-								        <th>Lastname</th>
-								        <th>Guardian Name</th>
-								        <th>Guardian Phone Number</th>
-								        <th>Guardian Occupation</th>
-								        <th>Student Phone Number</th>
-								        <th>Date of Birth</th>
-								        <th>Blood Group</th>
-								      </tr>
-								    </thead>
-								    <tbody>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>2</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								    </tbody>
-							  </table>
-							</div>
-							</div>
-							<div class=" " id="c10C" style="display: none;" >
-								<div class="pinformation">
-						    	<h1>Personal Information</h1>
-						        </div>
-						        
-						    	<div class="table-responsive">          
-							  <table class="table">
-								    <thead>
-								      <tr>
-								        <th>Registration Id</th>
-								        <th>Firstname</th>
-								        <th>Lastname</th>
-								        <th>Guardian Name</th>
-								        <th>Guardian Phone Number</th>
-								        <th>Guardian Occupation</th>
-								        <th>Student Phone Number</th>
-								        <th>Date of Birth</th>
-								        <th>Blood Group</th>
-								      </tr>
-								    </thead>
-								    <tbody>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>2</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								    </tbody>
-							  </table>
-							</div>
-							</div>
-							<div class=" " id="c10A" style="display: none;" >
-								<div class="pinformation">
-						    	<h1>Personal Information</h1>
-						        </div>
-						        
-						    	<div class="table-responsive">          
-							  <table class="table">
-								    <thead>
-								      <tr>
-								        <th>Registration Id</th>
-								        <th>Firstname</th>
-								        <th>Lastname</th>
-								        <th>Guardian Name</th>
-								        <th>Guardian Phone Number</th>
-								        <th>Guardian Occupation</th>
-								        <th>Student Phone Number</th>
-								        <th>Date of Birth</th>
-								        <th>Blood Group</th>
-								      </tr>
-								    </thead>
-								    <tbody>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>2</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								      <tr>
-								        <td>1</td>
-								        <td>Hasan</td>
-								        <td>Mahmud</td>
-								        <td>CSE 101</td>
-								        <td>C Programming</td>
-								        <td>85</td>
-								        <td>A+</td>
-								        <td>85%</td>
-								        <td>Pass</td>
-								      </tr>
-								    </tbody>
-							  </table>
-							</div>
-							</div>
-								
-
-								
-								
-								
-							</form>
-					</div>
-				</div>
-
-		</button> 
-				<!-- Form Start -->
-		<div id="sE" style="display: none">
+					
 			
 		
 		<div class="row" id="row_form "  >
@@ -1443,7 +522,7 @@
 				</form>			
 			</div>
 		</div>
-	</div>
+	
 		
 		
 									    
@@ -1502,7 +581,7 @@
 									<th>Class</th>
 									<th>Section</th>
 									<th>Group</th>
-										<th>Shift</th>
+									<th>Shift</th>
 									<th>Edit</th>
 								</tr>
 							</thead>
@@ -1562,7 +641,6 @@
 						</table>
 					</div>
 					</form>
-<<<<<<< HEAD
 
 					
 					<form>
@@ -1621,8 +699,6 @@
 					</div>
 					</form>
 
-=======
->>>>>>> parent of a2408b6... educational info update done
 				</div>
 			</div>
 		</div>

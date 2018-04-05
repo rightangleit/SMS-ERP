@@ -150,6 +150,25 @@ class AdminController extends Controller
             return response()->json($student);
         
     }
+    public function update1(Request $request, $id)
+    {
+       
+            //return $request;            
+            $student = student::find($id);
+            $student->sclass = $request->get('sclass');
+            $student->ssection = $request->get('ssection');
+            $student->sgroup = $request->get('sgroup');
+            $student->sshift = $request->get('sshift');
+          
+            
+           
+            $stu = $student->save(); 
+            //return view('Admin.show_info',compact('student'));
+            //return $student;
+            
+             return response()->json($student);
+        
+    }
     public function update2(Request $request, $id)
     {
        
