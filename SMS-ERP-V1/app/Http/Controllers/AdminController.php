@@ -32,7 +32,10 @@ class AdminController extends Controller
     {
         return view('Admin.stu_info_new');
     }
-
+    public function show_all()
+    {
+        return view('Admin.show_info_all');
+    }
 
     /**
      * Store a newly created resource in storage.

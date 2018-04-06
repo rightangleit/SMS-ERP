@@ -326,7 +326,7 @@ body{
 
  }
  .navbar-inverse{
- 	background-image: linear-gradient(to bottom, #2E6DDA 0%, #2E6DDA 100%);
+ 	background-image: linear-gradient(to bottom,  #08011C 0%,  #08011C 100%);
  }
  @media screen and (min-width: 767px) {
       .row .content {
@@ -594,4 +594,52 @@ label#label_rId{
 #btn_save{
 	float: right;
     margin-right: 53px;
+}
+
+.select_class{
+	width: 385px;
+    height: 124px;
+    border: 2px solid #2e6da4b8;
+    margin-left: 262px;
+    margin-top: 82px;
+}
+.select_class h3{
+	margin-left: 60px;
+}
+.select_class_select{
+	
+	margin: 0px;
+	
+}
+.select_class_select .form-control{
+	
+	margin-left: 62px;
+	width: 57%;
+	
+}
+.show_stu_num{
+	width: 275px;
+    height: 124px;
+    margin-left: 316px;
+    margin-top: 40px;
+    background-color: #F9640A;
+}
+.show_stu_num:hover{
+	background-color: #08011C;
+	cursor: pointer;
+}
+.show_stu_num_div1{
+	height: 113px;
+}
+.show_stu_num_div1 p{
+	padding-top: 57px;
+	text-align: center;
+	color: #FFFFFF;
+
+}
+.show_stu_num_div1 i{
+	padding-top: 54px;
+	text-align: center;
+	
+
 }
