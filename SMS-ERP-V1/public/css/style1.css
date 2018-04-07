@@ -291,7 +291,7 @@ body{
 }
 .row.content {height: 550px;}
 .sidenav {
-      background-color: #333;
+      background-color: #0c0229;
       height: 90%;
       margin-top: 80px;
       width:220px;
@@ -307,8 +307,10 @@ body{
 }
 .sidenav .btn-primary{
 	color: #fff;
-    background-color: #333;
-    border-color: #d9edf7;
+    background-color: #0c0229;
+    /* border-color: #d9edf7; */
+    border: 0px;
+    background-image: linear-gradient(to bottom, #0c0229 0%, #0c0229 100%);
 }
  
  .mid-right{
