@@ -17,11 +17,11 @@ $(document).ready(function() {
 	        // process the form
 	        $.ajax({
 	            type        : 'POST', 
-	            contentType: "application/json; charset=utf-8",// define the type of HTTP verb we want to use (POST for our form)
+	            //contentType: "application/json; charset=utf-8",// define the type of HTTP verb we want to use (POST for our form)
 	            url         : 'show_info', // the url where we want to POST
 	            data        : formData, // our data object
 	            dataType    : 'json',
-	            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}, // what type of data do we expect back from the server
+	             // what type of data do we expect back from the server
 	            success: function(data){
 
 	            	//console.log(data[]);

@@ -88,10 +88,10 @@
 							    type="button" data-toggle="dropdown">Student Information
 							    <span class="caret"></span></button>
 							    <ul class="dropdown-menu">
-							      <li><a href="{{ url('stu_info_new/create') }}">New Student</a></li>
-							      <li><a href="{{ url('show_info') }}">Show information</a></li>
-							      
-							    </ul>
+									<li><a href="{{ url('stu_info_new/create') }}">New Student</a></li>
+								    <li><a href="{{ url('show_info') }}">Update information</a></li>
+								    <li><a href="{{ url('show_info_all') }}">Show information</a></li>      
+								</ul>
 						 	
 				        </li>
 				        <li class="dropdown">

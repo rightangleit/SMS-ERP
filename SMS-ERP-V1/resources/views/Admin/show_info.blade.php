@@ -9,17 +9,10 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('/css/font-awesome.min.css')}}">
 	
 	<script type="text/javascript" src="{{asset('/js/jquery.js')}}"></script>
-
-  	
-  	
   	<script type="text/javascript" src="{{asset('/js/bootstrap.min.js')}}"></script>
-
-	
-	
 	<link rel="stylesheet" type="text/css" href="{{asset('/css/style1.css')}}">
 	<meta name="viewport" content="width=device-width, 
 	initial-scale=1, maximum-scale=1">
-  	
   	<link rel="stylesheet" type="text/css" href="{{asset('/css/animate.min.css')}}">
 <!--   	<script src="/js/wow.min.js"></script> -->
     <script>
@@ -512,8 +505,8 @@
 		
 		<div class="row" id="row_form "  >
 			<div class="col-sm-12 col-md-12" id="row_1st_col_rId" style="">
-				<form class="form-horizontal" method="POST" action="{{url('show_info')}}" >
-					{{csrf_field()}}			
+				<form class="form-horizontal" method="POST" action="#" >
+					<!-- {{csrf_field()}} -->			
 					<div class="form-group, col-sm-6 col-md-6" >
 						<label for="rId" id="label_rId" class="control-label">Enter Registration Number: </label>
 							<input type="text" class="form-control" id="rId" placeholder="Registration Number" data-error="Enter Student's Registration Number" required name="rId">

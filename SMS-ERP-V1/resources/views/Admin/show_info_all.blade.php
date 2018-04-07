@@ -20,7 +20,7 @@
   	<link rel="stylesheet" type="text/css" href="{{asset('/css/animate.min.css')}}">
   	<script src="{{asset('/js/wow.min.js')}}"></script>
     <script>
-        new WOW().init();
+        //new WOW().init();
     </script>
     <script type="text/javascript">
     	function showTable(one,second,three,h1)
@@ -101,60 +101,52 @@
     $("#form_control_select_class").change(function() {
    		//alert($(this).find("option:selected").text());
    		var text = $(this).find("option:selected").text();
-   		if (text=='Six') {
-   			$('.show_stu_num').show();
-   			$('#c6').show();
-   			$('#c7').hide();
-   			
-   			$('#c8').hide();
-   			$('#c9').hide();
-   			$('#c10').hide()
-   		}
-   		else if (text=='Seven') {
-   			$('.show_stu_num').show();
-   			$('#c7').show();
-   			$('#c6').hide();
+   	/*	if (text=='Six') {*/
 
-   			
-   			
-   			$('#c8').hide();
-   			$('#c9').hide();
-   			$('#c10').hide()
-   		}
-   		else if (text=='Eight') {
-   			$('.show_stu_num').show();
-   			$('#c7').hide();
-   			$('#c6').hide();
-   			$('#c8').show();
-   			$('#c6').hide();
-   			$('#c9').hide();
-   			$('#c10').hide()
+   			var formData = {
+	            'sclass': text,
 
-   		}
-   		else if (text=='Nine') {
-   			$('.show_stu_num').show();
-   			$('#c7').hide();
-   			$('#c6').hide();
-   			$('#c8').hide();
-   			$('#c9').show();
+	            '_token': "{{csrf_token()}}",
+	        };
+	        $.ajax({
+	            type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
+	            url         : 'show_info_class', // the url where we want to POST
+	            data        : formData, // our data object
+	            dataType    : 'json', // what type of data do we expect back from the server
+	            success: function(data){
 
-   			
- 
-   			$('#c10').hide()
+	            	console.log(data);
 
-   		}
-   		else if (text=='Ten') {
-   			$('.show_stu_num').show();
-   			$('#c7').hide();
-   			$('#c6').hide();
-   			$('#c8').hide();
-   			$('#c9').hide();
-   			$('#c10').show();
+	            	//student = data[0];
+	            	//studen1 = data
+	            	var view_table ='';
+	            	$.each(data, function( index, student ) {
+					  	//alert(student.id);
+					  	view_table +='<tr><td>'+'-----'+'</td><td>'+student.id+'</td><td>'+student.fname+'</td><td>'+student.lname+'</td><td>'+student.gname+'</td><td>'+student.spreadd+'</td><td>'+student.sgroup+'</td><td>'+student.ssection+'</td><td><a href="" class="btn btn-primary">Action</a></td></tr>';
+					});
 
-   		}
-   		//var select = select.options[select.selectedIndex].textContent;
-   		//alert(select);
-    //alert($( "#form_control_select_class option:selected" ).text();+' clicked!');
+					var length = data.length;
+					
+					var show_stu_num_div1 = '<p> Total Students: '+length+'</p>';
+	            	$('#table1 tbody').html('');
+	            	$('.show_stu_num_div1').html('');
+	            	$('#table1').append(view_table);
+	            	$('.show_stu_num_div1').append(show_stu_num_div1);
+	            	$('.show_stu_num').show();
+	            	$('#c6').show();
+
+	            		
+	            	
+
+	            },
+	            error: function(err){
+
+	            }
+
+
+
+	        });
+	        
 });
     });
     </script>
@@ -230,10 +222,10 @@
 							    type="button" data-toggle="dropdown">Student Information
 							    <span class="caret"></span></button>
 							    <ul class="dropdown-menu">
-							      <li><a href="{{ url('stu_info_new/create') }}">New Student</a></li>
-							      <li><a href="{{ url('show_info') }}">Show information</a></li>
-							      
-							    </ul>
+									<li><a href="{{ url('stu_info_new/create') }}">New Student</a></li>
+								    <li><a href="{{ url('show_info') }}">Update information</a></li>
+								    <li><a href="{{ url('show_info_all') }}">Show information</a></li>      
+								</ul>
 						 	
 				        </li>
 				        <li class="dropdown">
@@ -316,7 +308,7 @@
 
 					<!-- <h1 class="title">Personal Information</h1> -->
 					<div class="col-sm-12 col-md-12" id="row_1st_col" style="">
-							<!-- <form class="form-horizontal fixed" id="form-horizontal" method="post" action=""> -->
+							<form class="form-horizontal fixed" id="form-horizontal" method="post" action="#">
 								<!-- {{csrf_field()}} -->
 								
 							    
@@ -326,7 +318,7 @@
 							    	<h3>Please select a class</h3>
 							    	<div class="select_class_select">
 							    		<select class="form-control" id="form_control_select_class">
-							    			<option >Select a Class</option>
+							    			<option disabled="true" selected="selected" >Select a Class</option>
 							    			<option value="1" >Six</option>
 							    			<option>Seven</option>
 							    			<option>Eight</option>
@@ -340,7 +332,7 @@
 							    <div class="show_stu_num" style="display: none;">
 							    	<div class="show_stu_num_div1">
 							    		<!-- <i class="fas fa-user"></i> -->
-							    		<p>Total Students 5</p>
+							    		<!-- <p>Total Students 5</p> -->
 							    	</div>
 							    		
 							    </div>
@@ -353,7 +345,7 @@
 						    	<div class="container">
                                                                                        
 									  <div class="table-responsive">          
-									  <table class="table">
+									  <table class="table" id="table1">
 									    <thead>
 									      <tr>
 									      	<th>Image</th>
@@ -368,28 +360,9 @@
 									      </tr>
 									    </thead>
 									    <tbody>
-									      <tr>
-									        <td><img src="#"></td>
-									        <td>13201016</td>
-									        <td>Salman</td>
-									        <td>Mohammad Sultan</td>
-									        <td>Mohammad Abdus Salam</td>
-									        <td>116 South Goran, Khilgaon, Dhaka</td>
-									        <td>---</td>
-									        <td>A</td>
-									        <td><a href="" class="btn-primary">Action</a></td>
-									      </tr>
-									       <tr>
-									        <td><img src="#"></td>
-									        <td>13201016</td>
-									        <td>Salman</td>
-									        <td>Mohammad Sultan</td>
-									        <td>Mohammad Abdus Salam</td>
-									        <td>116 South Goran, Khilgaon, Dhaka</td>
-									        <td>---</td>
-									        <td>A</td>
-									        <td><a href="" class="btn-primary">Action</a></td>
-									      </tr>
+
+									      
+									       
 									    </tbody>
 									  </table>
 									  </div>
@@ -431,7 +404,7 @@
 									        <td>116 South Goran, Khilgaon, Dhaka</td>
 									        <td>---</td>
 									        <td>A</td>
-									        <td><a href="" class="btn-primary">Action</a></td>
+									        <td><a href="" class="btn btn-primary">Action</a></td>
 									      </tr>
 									       
 									    </tbody>
@@ -475,7 +448,7 @@
 									        <td>116 South Goran, Khilgaon, Dhaka</td>
 									        <td>---</td>
 									        <td>A</td>
-									        <td><a href="" class="btn-primary">Action</a></td>
+									        <td><a href="" class="btn btn-primary">Action</a></td>
 									      </tr>
 									       <tr>
 									        <td><img src="#"></td>
@@ -486,7 +459,7 @@
 									        <td>116 South Goran, Khilgaon, Dhaka</td>
 									        <td>---</td>
 									        <td>A</td>
-									        <td><a href="" class="btn-primary">Action</a></td>
+									        <td><a href="" class="btn btn-primary">Action</a></td>
 									      </tr>
 									      <tr>
 									        <td><img src="#"></td>
@@ -497,7 +470,7 @@
 									        <td>116 South Goran, Khilgaon, Dhaka</td>
 									        <td>---</td>
 									        <td>A</td>
-									        <td><a href="" class="btn-primary">Action</a></td>
+									        <td><a href="" class="btn btn-primary">Action</a></td>
 									      </tr>
 									    </tbody>
 									  </table>
@@ -539,7 +512,7 @@
 									        <td>116 South Goran, Khilgaon, Dhaka</td>
 									        <td>---</td>
 									        <td>A</td>
-									        <td><a href="" class="btn-primary">Action</a></td>
+									        <td><a href="" class="btn btn-primary">Action</a></td>
 									      </tr>
 									       <tr>
 									        <td><img src="#"></td>
@@ -550,7 +523,7 @@
 									        <td>116 South Goran, Khilgaon, Dhaka</td>
 									        <td>---</td>
 									        <td>A</td>
-									        <td><a href="" class="btn-primary">Action</a></td>
+									        <td><a href="" class="btn btn-primary">Action</a></td>
 									      </tr>
 									      <tr>
 									        <td><img src="#"></td>
@@ -561,7 +534,7 @@
 									        <td>116 South Goran, Khilgaon, Dhaka</td>
 									        <td>---</td>
 									        <td>A</td>
-									        <td><a href="" class="btn-primary">Action</a></td>
+									        <td><a href="" class="btn btn-primary">Action</a></td>
 									      </tr>
 									    </tbody>
 									  </table>
@@ -603,7 +576,7 @@
 									        <td>116 South Goran, Khilgaon, Dhaka</td>
 									        <td>---</td>
 									        <td>A</td>
-									        <td><a href="" class="btn-primary">Action</a></td>
+									        <td><a href="" class="btn btn-primary">Action</a></td>
 									      </tr>
 									       <tr>
 									        <td><img src="#"></td>
@@ -614,7 +587,7 @@
 									        <td>116 South Goran, Khilgaon, Dhaka</td>
 									        <td>---</td>
 									        <td>A</td>
-									        <td><a href="" class="btn-primary">Action</a></td>
+									        <td><a href="" class="btn btn-primary">Action</a></td>
 									      </tr>
 									      <tr>
 									        <td><img src="#"></td>
@@ -625,7 +598,7 @@
 									        <td>116 South Goran, Khilgaon, Dhaka</td>
 									        <td>---</td>
 									        <td>A</td>
-									        <td><a href="" class="btn-primary">Action</a></td>
+									        <td><a href="" class="btn btn-primary">Action</a></td>
 									      </tr>
 									    </tbody>
 									  </table>
@@ -639,7 +612,7 @@
 								
 								
 								
-						<!-- 	</form> -->
+							</form>
 					</div>
 				</div>
 				
