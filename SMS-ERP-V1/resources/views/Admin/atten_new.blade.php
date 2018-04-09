@@ -28,12 +28,45 @@
 		   			var year = $('#form_control_select_year').find("option:selected").text();
 				   	var group = $('#form_control_select_group').find("option:selected").text();
 				   	var sub = $('#form_control_select_sub').find("option:selected").text()
-   			//alert(cls);
+
+				   	var cls_val = $(' #form_control_select_class1').find("option:selected").val();
+		   			var month_val = $('#form_control_select_month').find("option:selected").val();
+		   			var year_val = $('#form_control_select_year').find("option:selected").val();
+				   	var group_val = $('#form_control_select_group').find("option:selected").val();
+				   	var sub_val = $('#form_control_select_sub').find("option:selected").val();
+
+				   	//cls_val = cls_val.toString();
+                    //console.log(cls_val);
+                    //var start_date = "01-"+month_val+"-"+year_val;
+                    date = new Date();
+                    var firstDay = new Date(year_val, month_val-1, 1);
+
+                    first_date = firstDay.getDate();
+                   // alert(firstDay);
+                    var start_time = firstDay.getTime();
+
+                    var lastDay = new Date(year_val,month_val,0);
+                    last_date= lastDay.getDate();
+                    alert(last_date);
+                    
+                    end_time = lastDay.getTime();
+                    //alert(end_time);
+                    //alert(start_time);
+				   	//alert("'"+ "'"+cls_val+"'"+"'");
+
+				   	for(var i=first_date; i<last_date; i++)
+					{
+						   document.write(i);
+						   
+
+					}
+
+   			
    			//alert(month);
 		    
 		   		
 
-		   			var formData = {
+		   			/*var formData = {
 			            'sclass': cls,
 			            'month': month,
 			            'year': year,
@@ -81,7 +114,7 @@
 
 
 			        });
-			        
+			        */
 		
 	});
 });
@@ -247,11 +280,11 @@
 							    		<select class="form-control" id="form_control_select_class1">
 							    			<option disabled="true" selected="selected" >Select a Class
 							    			</option>
-							    			<option value="1" >Six</option>
-							    			<option>Seven</option>
-							    			<option>Eight</option>
-							    			<option>Nine</option>
-							    			<option>Ten</option>
+							    			<option value="06" >Six</option>
+							    			<option value="07">Seven</option>
+							    			<option value="08">Eight</option>
+							    			<option value="09">Nine</option>
+							    			<option value="10">Ten</option>
 							    			
 							    		</select>
 
@@ -261,18 +294,18 @@
 							    		<select class="form-control" id="form_control_select_month">
 							    			<option disabled="true" selected="selected" >Select Month
 							    			</option>
-							    			<option value="1" >January</option>
-							    			<option>February</option>
-							    			<option>March</option>
-							    			<option>April</option>
-							    			<option>May</option>
-							    			<option>June</option>
-							    			<option>July</option>
-							    			<option>August</option>
-							    			<option>September</option>
-							    			<option>October</option>
-							    			<option>November</option>
-							    			<option>December</option>
+							    			<option value="01" >January</option>
+							    			<option value="02">February</option>
+							    			<option value="03">March</option>
+							    			<option value="04">April</option>
+							    			<option value="05">May</option>
+							    			<option value="06">June</option>
+							    			<option value="07">July</option>
+							    			<option value="08">August</option>
+							    			<option value="09">September</option>
+							    			<option value="10">October</option>
+							    			<option value="11">November</option>
+							    			<option value="12">December</option>
 							    			
 							    		</select>
 							    		
@@ -281,14 +314,14 @@
 							    		<select class="form-control" id="form_control_select_year">
 							    			<option disabled="true" selected="selected" >Select Year
 							    			</option>
-							    			<option value="1" >2012</option>
-							    			<option>2013</option>
-							    			<option>2013</option>
-							    			<option>2014</option>
-							    			<option>2015</option>
-							    			<option>2016</option>
-							    			<option>2017</option>
-							    			<option>2018</option>
+							    			<option value="2012" >2012</option>
+							    			<option value="2013">2013</option>
+							    			<option value="2014">2014</option>
+							    			<option value="2015">2015</option>
+							    			<option value="2016">2016</option>
+							    			<option value="2017">2017</option>
+							    			<option value="2018">2018</option>
+							    			
 							    			
 							    			
 							    		</select>
@@ -298,9 +331,9 @@
 							    		<select class="form-control" id="form_control_select_group">
 							    			<option disabled="true" selected="selected" >Select Group
 							    			</option>
-							    			<option value="1" >Science</option>
-							    			<option>Commerce</option>
-							    			<option>Arts</option>
+							    			<option value="01" >Science</option>
+							    			<option value="02">Commerce</option>
+							    			<option value="03">Arts</option>
 							    		</select>
 							    		
 							    	</div>
@@ -308,9 +341,9 @@
 							    	<div class="select_sub_select">
 							    		<select class="form-control" id="form_control_select_sub">
 							    			<option disabled="true" selected="selected" >Select a class first</option>
-							    			<option value="1" >Math</option>
-							    			<option>Physic</option>
-							    			<option>Science</option>
+							    			<option value="01" >Math</option>
+							    			<option value="02">Physic</option>
+							    			<option value="03">Science</option>
 							    		</select>
 							    		
 							    	</div>
