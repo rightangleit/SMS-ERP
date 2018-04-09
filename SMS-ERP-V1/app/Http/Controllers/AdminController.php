@@ -150,6 +150,37 @@ class AdminController extends Controller
 
         
     }
+    public function atten_new_show(Request $request){
+        $sclass = $request->get('sclass');
+        if($sclass=="Six"){
+            $student = student::where('sclass',6)->get();
+            return response()->json($student);
+            //return view('Admin.show_info_all',compact('student'));
+        }
+         else if($sclass=="Seven"){
+            $student = student::where('sclass',7)->get();
+            return response()->json($student);
+            //return view('Admin.show_info_all',compact('student'));
+        }
+         else if($sclass=="Eight"){
+            $student = student::where('sclass',8)->get();
+            return response()->json($student);
+            //return view('Admin.show_info_all',compact('student'));
+        }
+         else if($sclass=="Nine"){
+            $student = student::where('sclass',9)->get();
+            return response()->json($student);
+            //return view('Admin.show_info_all',compact('student'));
+        }
+         else if($sclass=="Ten"){
+            $student = student::where('sclass',10)->get();
+            return response()->json($student);
+            //return view('Admin.show_info_all',compact('student'));
+        }
+        
+
+        
+    }
 
     /**
      * Show the form for editing the specified resource.

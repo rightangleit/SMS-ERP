@@ -21,58 +21,70 @@
   	<script src="{{asset('/js/wow.min.js')}}"></script>
 
     <script type="text/javascript">
-    /*$(document).ready(function() {
-    $("#form_control_select_class").change(function() {
-   		//alert($(this).find("option:selected").text());
-   		var text = $(this).find("option:selected").text();
-   	/*	if (text=='Six') {*/
+   $(document).ready(function() {
+   		$(document).on('click','#manage_stu',function(){
+		   			var cls = $(' #form_control_select_class1').find("option:selected").text();
+		   			var month = $('#form_control_select_month').find("option:selected").text();
+		   			var year = $('#form_control_select_year').find("option:selected").text();
+				   	var group = $('#form_control_select_group').find("option:selected").text();
+				   	var sub = $('#form_control_select_sub').find("option:selected").text()
+   			//alert(cls);
+   			//alert(month);
+		    
+		   		
 
-   			/*var formData = {
-	            'sclass': text,
+		   			var formData = {
+			            'sclass': cls,
+			            'month': month,
+			            'year': year,
+			            'group': group,
+			            'sub': sub,
 
-	            '_token': "{{csrf_token()}}",
-	        };
-	        $.ajax({
-	            type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
-	            url         : 'show_info_class', // the url where we want to POST
-	            data        : formData, // our data object
-	            dataType    : 'json', // what type of data do we expect back from the server
-	            success: function(data){
+			            '_token': "{{csrf_token()}}",
+			        };
+			        $.ajax({
+			            type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
+			            url         : 'atten_new', // the url where we want to POST
+			            data        : formData, // our data object
+			            dataType    : 'json', // what type of data do we expect back from the server
+			            success: function(data){
 
-	            	console.log(data);
+			            	console.log(data);
 
-	            	//student = data[0];
-	            	//studen1 = data
-	            	var view_table ='';
-	            	$.each(data, function( index, student ) {
-					  	//alert(student.id);
-					  	view_table +='<tr><td>'+'-----'+'</td><td>'+student.id+'</td><td>'+student.fname+'</td><td>'+student.lname+'</td><td>'+student.gname+'</td><td>'+student.spreadd+'</td><td>'+student.sgroup+'</td><td>'+student.ssection+'</td><td><a href="" class="btn btn-primary">Action</a></td></tr>';
-					});
+			            	//student = data[0];
+			            	//studen1 = data
+			            	var view_table ='';
+			            	$.each(data, function( index, student ) {
+							  	//alert(student.id);
+							  	view_table +='<td>'+'-----'+'</td><td>'+student.id+'</td><td>'+student.fname+' '+student.lname+'</td>';
+							});
 
-					var length = data.length;
-					
-					var show_stu_num_div1 = '<p> Total Students: '+length+'</p>';
-	            	$('#table1 tbody').html('');
-	            	$('.show_stu_num_div1').html('');
-	            	$('#table1').append(view_table);
-	            	$('.show_stu_num_div1').append(show_stu_num_div1);
-	            	$('.show_stu_num').show();
-	            	$('#c6').show();
+							var length = data.length;
+							
+							//var show_stu_num_div1 = '<p> Total Students: '+length+'</p>';
+			            	//$('#table1 tbody').html('');
+			            	//$('.show_stu_num_div1').html('');
+			            	$('#table1 tbody').append(view_table);
+			            	//$('.show_stu_num_div1').append(show_stu_num_div1);
+			            	//$('.show_stu_num').show();
+			            	//$('#c6').show();
 
-	            		
-	            	
+			            		
+			            	
 
-	            },
-	            error: function(err){
+			            },
+			            error: function(err){
 
-	            }
+			            }
 
 
 
-	        });
-	        */
-/*});
-    });*/
+
+			        });
+			        
+		
+	});
+});
     </script>
 </head>
 <body>
@@ -356,15 +368,6 @@
 									    </thead>
 									    <tbody>
 									    	<tr>
-									    		<td>
-									    			-----
-									    		</td>
-									    		<td>
-									    			13201016
-									    		</td>
-									    		<td>
-									    			Salman Mohammad Sultan
-									    		</td>
 									    		<td>
 									    			Math
 									    		</td>
