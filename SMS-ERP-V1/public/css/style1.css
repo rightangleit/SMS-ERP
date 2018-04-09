@@ -599,26 +599,92 @@ label#label_rId{
 }
 
 .select_class{
-	width: 385px;
-    height: 124px;
+	    width: 421px;
+    height: 146px;
     border: 2px solid #2e6da4b8;
-    margin-left: 262px;
-    margin-top: 82px;
+    margin-left: 254px;
+    margin-top: 81px;
+
+}
+
+.select_class1{
+	width: 1033px;
+    height: 146px;
+    border: 2px solid #2e6da4b8;
+    margin-left: -40px;
+    margin-top: 81px;
+
 }
 .select_class h3{
 	margin-left: 60px;
 }
-.select_class_select{
+.select_class_select,.select_month_select,.select_year_select,.select_month_select,.select_sub_select{
 	
 	margin: 0px;
 	
 }
+
 .select_class_select .form-control{
 	
-	margin-left: 62px;
-	width: 57%;
+	margin-left: 58px;
+    width: 57%;
+    margin-top: 16px;
 	
 }
+.select_class_select1 .form-control{
+	
+	margin-left: 418px;
+    width: 18%;
+    margin-top: 45px;
+	
+}
+.select_month_select .form-control{
+	
+	margin-left: 18px;
+    width: 18%;
+    margin-top: -37px;
+	
+}
+.select_year_select .form-control{
+	
+	margin-left: 218px;
+    width: 18%;
+    margin-top: -32px;
+	
+
+	
+}
+.select_group_select .form-control{
+	
+    margin-left: 622px;
+    width: 18%;
+    margin-top: -33px;
+	
+
+	
+}
+.select_sub_select .form-control{
+	
+	margin-left: 825px;
+    width: 18%;
+    margin-top: -33px;
+	
+
+	
+}
+
+.select_btn_select #manage_stu{
+	margin-left: 2px;
+	/*background-image: linear-gradient(to bottom, #F9640A 0%, #F9640A 100%);*/
+	margin-left: 20px;
+    margin-top: 17px;
+    border:0px;
+}
+
+select:hover{
+	cursor: pointer;
+}
+
 .show_stu_num{
 	width: 275px;
     height: 124px;
@@ -644,4 +710,9 @@ label#label_rId{
 	text-align: center;
 	
 
+}
+
+#table_res{
+	margin-top: 48px;
+    margin-left: -55px;
 }

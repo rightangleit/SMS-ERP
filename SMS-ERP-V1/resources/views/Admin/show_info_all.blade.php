@@ -19,83 +19,7 @@
   	
   	<link rel="stylesheet" type="text/css" href="{{asset('/css/animate.min.css')}}">
   	<script src="{{asset('/js/wow.min.js')}}"></script>
-    <script>
-        //new WOW().init();
-    </script>
-    <script type="text/javascript">
-    	function showTable(one,second,three,h1)
-	    {
-	      document.getElementById(one).style.display = 'block';
-	      document.getElementById(second).style.display = 'none';
-	      document.getElementById(three).style.display = 'none';
-	      document.getElementById(h1).style.display = 'none';
-	      
-	    }
-	    function showTable1(one)
-	    {
-	      document.getElementById(one).style.display = 'block';
-	      
-	      
-	    }
-    </script>
-
-    <script type="text/javascript">
-    	/*$(document).ready(function() {
-
-	    // process the form
-	    $('form').submit(function(event) {
-
-	        event.preventDefault();
-
-	        var formData = {
-	            'rId': $('input[name=rId]').val(),
-
-	            '_token': "{{csrf_token()}}",
-	            
-	        };
-
-	        // process the form
-	        $.ajax({
-	            type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
-	            url         : 'show_info', // the url where we want to POST
-	            data        : formData, // our data object
-	            dataType    : 'json', // what type of data do we expect back from the server
-	            success: function(data){
-
-	            	//console.log(data[]);
-	            	student = data[0];
-	            	var view_table1 ='<tr id="1st_tr"><td id="sid">'+student.id+'</td><td id="fname">'+student.fname+'</td><td id="lname">'+student.lname+'</td><td id="sgname">'+student.gname+'</td><td id="sgoccup">'+student.goccup+'</td><td id="gphone">'+student.gphone+'</td><td id="sphone">'+student.sphone+'</td><td id="sdob">'+student.sdob+'</td><td id="sblood">'+student.sblood+'</td><td><a  href="#" id="editbtn">Edit</a></td></tr>';
-	            	var view_table2 ='<tr><td>'+student.sclass+'</td><td>'+student.ssection+'</td><td>'+student.sgroup+'</td><td>'+student.sshift+'</td><td><a href="#" id="editbtn2" >Edit</a></td></tr>';
-	            	var view_table3 ='<tr><td>'+student.speradd+'</td><td>'+student.spreadd+'</td><td><a href="#" id="editbtn3">Edit</a></td></tr>';
-	            	//$('.modal-body').html(response):/
-
-	            	$('#table1').append(view_table1);
-	            	$('#table2').append(view_table2);
-	            	$('#table3').append(view_table3);
-	            	$('#myModal').modal('show');
-
-	            	
-	            	//$('#myModal').modal('show');
-
-	            		
-	            	
-
-	            },
-	            error: function(err){
-
-	            }
-
-
-
-	        });
-	        // stop the form from submitting the normal way and refreshing the page
-	        
-
-	    });
-
-	});*/
-    </script>
-
+ 
     <script type="text/javascript">
     $(document).ready(function() {
     $("#form_control_select_class").change(function() {
@@ -234,17 +158,8 @@
 							    type="button" data-toggle="dropdown">Student Attendance
 							    <span class="caret"></span></button>
 							    <ul class="dropdown-menu">
-							      <li><a href="#">All</a></li>
-							      <li><a href="#">Class One</a></li>
-							      <li><a href="#">Class Two</a></li>
-							      <li><a href="#">Class Three</a></li>
-							      <li><a href="#">Class Four</a></li>
-							      <li><a href="#">Class Five</a></li>
-							      <li><a href="#">Class Six</a></li>
-							      <li><a href="#">Class Seven</a></li>
-							      <li><a href="#">Class Eight</a></li>
-							      <li><a href="#">Class Nine</a></li>
-							      <li><a href="#">Class Ten</a></li>
+							     <li><a href="{{ url('atten_new') }}">Add New Record</a></li>
+							      <li><a href="{{ url('atten_show') }}">Show Record</a></li>
 							    </ul>
 						 	
 				        </li>

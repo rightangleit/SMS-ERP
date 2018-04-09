@@ -36,6 +36,10 @@ class AdminController extends Controller
     {
         return view('Admin.show_info_all');
     }
+     public function atten_new()
+    {
+        return view('Admin.atten_new');
+    }
 
     /**
      * Store a newly created resource in storage.

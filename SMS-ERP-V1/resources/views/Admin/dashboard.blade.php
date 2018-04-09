@@ -100,17 +100,9 @@
 							    type="button" data-toggle="dropdown">Student Attendance
 							    <span class="caret"></span></button>
 							    <ul class="dropdown-menu">
-							      <li><a href="#">All</a></li>
-							      <li><a href="#">Class One</a></li>
-							      <li><a href="#">Class Two</a></li>
-							      <li><a href="#">Class Three</a></li>
-							      <li><a href="#">Class Four</a></li>
-							      <li><a href="#">Class Five</a></li>
-							      <li><a href="#">Class Six</a></li>
-							      <li><a href="#">Class Seven</a></li>
-							      <li><a href="#">Class Eight</a></li>
-							      <li><a href="#">Class Nine</a></li>
-							      <li><a href="#">Class Ten</a></li>
+							      <li><a href="{{ url('atten_new') }}">Add New Record</a></li>
+							      <li><a href="{{ url('atten_show') }}">Show Record</a></li>
+							      
 							    </ul>
 						 	
 				        </li>
