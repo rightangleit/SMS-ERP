@@ -23,6 +23,7 @@
     <script type="text/javascript">
    $(document).ready(function() {
    		$(document).on('click','#manage_stu',function(){
+
 		   			var cls = $(' #form_control_select_class1').find("option:selected").text();
 		   			var month = $('#form_control_select_month').find("option:selected").text();
 		   			var year = $('#form_control_select_year').find("option:selected").text();
@@ -35,36 +36,93 @@
 				   	var group_val = $('#form_control_select_group').find("option:selected").val();
 				   	var sub_val = $('#form_control_select_sub').find("option:selected").val();
 
-				   	//cls_val = cls_val.toString();
-                    //console.log(cls_val);
-                    //var start_date = "01-"+month_val+"-"+year_val;
+				   	
+                    
                     date = new Date();
                     var firstDay = new Date(year_val, month_val-1, 1);
 
                     first_date = firstDay.getDate();
-                   // alert(firstDay);
+                    
                     var start_time = firstDay.getTime();
 
                     var lastDay = new Date(year_val,month_val,0);
                     last_date= lastDay.getDate();
-                    alert(last_date);
+
+                    var numOfDays = new Date(year_val, month_val, 0).getDate();
+                    alert(numOfDays);
+
+                    var days = new Array();
+                   
                     
                     end_time = lastDay.getTime();
-                    //alert(end_time);
-                    //alert(start_time);
-				   	//alert("'"+ "'"+cls_val+"'"+"'");
-
-				   	for(var i=first_date; i<last_date; i++)
+                    
+			        var j = 1;
+			        var day_n = '';
+			        var view_table = '';
+			       
+				   	for(var i=first_date,j=0; j<=numOfDays,i<=last_date; i++,j++)
 					{
-						   document.write(i);
+						
+
+						    days[j]=new Date(year_val, month_val-1, j+1).getDay();
+						  
+						 
+						  
+						   if (days[j]==0) {
+						   			day_n = 'Sun';
+						   		
+
+						  
+						   }
+						    else if (days[j]==1) {
+						    		day_n = 'Mon';
+						   			
+
+						  
+						   }
+						    else if (days[j]==2) {
+						    		day_n = 'Tue';
+						   			
+
 						   
+						   }
+						    else if (days[j]==3) {
+						    		day_n = 'Wed';
+						   			
+
+						
+						   }
+						    else if (days[j]==4) {
+						    		day_n = 'Thu';
+						   			
+
+						 
+						   }
+						    else if (days[j]==5) {
+						    		day_n = 'Fri';
+						   			
+
+						   }
+						   else{
+						   		day_n = 'Sat';
+						   	
+						   }
+						    view_table +='<th>'+day_n+' '+i+'</th>';
+
+					
+						
+						  							
+						 
 
 					}
+				
+					 $('#table1 thead tr' ).html('<th>'+'Image'+'</th>'+'<th>'+'Registration Number'+'</th>'+'<th>'+'Name'+'</th>'+'<th>'+'Sub Name'+'</th>'+view_table);
+			
+					
+					
 
-   			
-   			//alert(month);
+
 		    
-		   		
 
 		   			/*var formData = {
 			            'sclass': cls,
@@ -124,7 +182,7 @@
 	<div id="navbar" class="navbar navbar-default navbar-fixed-top navbar-inverse" 
 	role="navigation">
 		<div class="container">
-			<div class="navbar-header">
+			<div class="navbar-header" >
 				<!-- <button type="button" class="navbar-toggle collapsed" 
 				data-toggle="collapse" data-target=".navbar-collapse">
 					 <span class="icon-bar"></span>
@@ -155,7 +213,7 @@
 	<!-- Mid -->
 
 <nav class="navbar navbar-inverse visible-xs navbar-fixed-top" id="navbar2">
-	  <div class="container-fluid">
+	  <div class="container-fluid" >
 	    <div class="navbar-header">
 	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
 	        <span class="icon-bar"></span>
@@ -294,15 +352,15 @@
 							    		<select class="form-control" id="form_control_select_month">
 							    			<option disabled="true" selected="selected" >Select Month
 							    			</option>
-							    			<option value="01" >January</option>
-							    			<option value="02">February</option>
-							    			<option value="03">March</option>
-							    			<option value="04">April</option>
-							    			<option value="05">May</option>
-							    			<option value="06">June</option>
-							    			<option value="07">July</option>
-							    			<option value="08">August</option>
-							    			<option value="09">September</option>
+							    			<option value="1" >January</option>
+							    			<option value="2">February</option>
+							    			<option value="3">March</option>
+							    			<option value="4">April</option>
+							    			<option value="5">May</option>
+							    			<option value="6">June</option>
+							    			<option value="7">July</option>
+							    			<option value="8">August</option>
+							    			<option value="9">September</option>
 							    			<option value="10">October</option>
 							    			<option value="11">November</option>
 							    			<option value="12">December</option>
@@ -348,7 +406,7 @@
 							    		
 							    	</div>
 							    	<div class="select_btn_select">
-							    		<a href="#" class="btn btn-primary" id="manage_stu">Manage student</a>
+							    		<a href="#" class="btn btn-primary" id="manage_stu" >Manage student</a>
 							    		
 							    	</div>
 							    </div>
@@ -361,42 +419,9 @@
                                                                                        
 									  <div class="table-responsive" id="table_res">          
 									  <table class="table" id="table1" border="2px">
-									    <thead>
+									     <thead>
 									      <tr>
-									      	<th>Image</th>
-									        <th>Registration Number</th>
-									        <th>Name</th>
-									        <th>Subject Name</th>
-									        <th>Fri 1</th>
-									        <th>Sat 2</th>
-									        <th>Sun 3</th>
-									        <th>Fri 1</th>
-									        <th>Sat 2</th>
-									        <th>Sun 3</th>
-									        <th>Fri 1</th>
-									        <th>Sat 2</th>
-									        <th>Sun 3</th>
-									        <th>Fri 1</th>
-									        <th>Sat 2</th>
-									        <th>Sun 3</th>
-									        <th>Fri 1</th>
-									        <th>Sat 2</th>
-									        <th>Sun 3</th>
-									        <th>Fri 1</th>
-									        <th>Sat 2</th>
-									        <th>Sun 3</th>
-									        <th>Fri 1</th>
-									        <th>Sat 2</th>
-									        <th>Sun 3</th>
-									        <th>Fri 1</th>
-									        <th>Sat 2</th>
-									        <th>Sun 3</th>
-									        <th>Fri 1</th>
-									        <th>Sat 2</th>
-									        <th>Sun 3</th>
-									        <th>Fri 1</th>
-									        <th>Sat 2</th>
-									        <th>Sun 3</th>
+									      
 									      </tr>
 									    </thead>
 									    <tbody>
