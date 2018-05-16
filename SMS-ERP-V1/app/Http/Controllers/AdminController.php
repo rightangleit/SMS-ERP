@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\student;
-
+use App\stuAtten;
 class AdminController extends Controller
 {
     /**
@@ -180,6 +180,31 @@ class AdminController extends Controller
         
 
         
+    }
+
+    public function atten_new_insert(Request $request){
+      
+        $atten_status = $request->get('atten_status');
+        $studenId = $request->get('studentId');
+        $date = $request->get('date');
+        $sub = $request->get('sub');
+        $atten_status_len=$request->get('atten_status_len');
+        $atten = new stuAtten; 
+
+        //return response()->json($atten);       
+         
+        
+
+         for ($i=0; $i<$atten_status_len ; $i++) { 
+                $attendance = new stuAtten;
+                $attendance->stu_id =$studenId[$i] ;
+                $attendance->attenStatus =$atten_status[$i] ;
+                $attendance->atten_date=$date;
+                $attendance->cr_name=$sub;
+                $attendance->save();
+          }
+                 
+         
     }
 
     /**

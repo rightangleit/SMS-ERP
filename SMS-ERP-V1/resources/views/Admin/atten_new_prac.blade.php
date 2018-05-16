@@ -3,39 +3,93 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap/css/bootstrap.min.css')}}">
+	<!-- <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"> -->
 	<link rel="stylesheet" type="text/css" href="{{ asset('/css/bootstrap/css/bootstrap-theme.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('/css/bootstrap/css/bootstrap-theme.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('/css/font-awesome.min.css')}}">
+	
 	<script type="text/javascript" src="{{asset('/js/jquery.js')}}"></script>
+
+  	
   	<script type="text/javascript" src="{{asset('/js/bootstrap.min.js')}}"></script>
+	
 	<link rel="stylesheet" type="text/css" href="{{asset('/css/style1.css')}}">
 	<meta name="viewport" content="width=device-width, 
 	initial-scale=1, maximum-scale=1">
+  	
   	<link rel="stylesheet" type="text/css" href="{{asset('/css/animate.min.css')}}">
   	<script src="{{asset('/js/wow.min.js')}}"></script>
 
 <script type="text/javascript">
 	var view_table2 = '';
-	var name = 1;
-	var sub='';
-	var date;
    	$(document).ready(function() {
    		$(document).on('click','#manage_stu',function(){
-				var cls_val = $('#form_control_select_class1').find("option:selected").val(); 		
+
+				var cls_val = $(' #form_control_select_class1').find("option:selected").val();
+		   		var month_val = $('#form_control_select_month').find("option:selected").val();
+		   		var year_val = $('#form_control_select_year').find("option:selected").val();
 				var group_val = $('#form_control_select_group').find("option:selected").val();
 				var sub_val = $('#form_control_select_sub').find("option:selected").val();   
-                 date = $('#form_control_select_date').val();
-                var date_val = 'DATE:'+date;
-				$('#date h3').append(date_val);
-				$('#table1 thead tr' ).html('<th>'+'Image'+'</th>'+'<th>'+'Registration Number'+'</th>'+'<th>'+'Name'+'</th>'+'<th>'+'Sub Name'+'</th>'+'<th>'+'Status'+'</th>');
+                date = new Date();
+                var firstDay = new Date(year_val, month_val-1, 1);
+                first_date = firstDay.getDate();                   
+                var start_time = firstDay.getTime();
+                var lastDay = new Date(year_val,month_val,0);
+                last_date= lastDay.getDate();
+                var numOfDays = new Date(year_val, month_val, 0).getDate();
+                alert(numOfDays);
+                var days = new Array(); 
+                end_time = lastDay.getTime();                    
+			    var j = 1;
+			    var day_n = '';
+			    var view_table1 = '';
+			    
+				for(var i=first_date,j=0; j<=numOfDays,i<=last_date; i++,j++)
+				{
+						
+					days[j]=new Date(year_val, month_val-1, j+1).getDay();						  
+					if (days[j]==0) {
+					   	day_n = 'Sun';
+					}
+					else if (days[j]==1) {
+					    day_n = 'Mon';
+					}
+					else if (days[j]==2) {
+					    day_n = 'Tue';
+					}
+					else if (days[j]==3) {
+					    day_n = 'Wed';
+					}
+					else if (days[j]==4) {
+					  	day_n = 'Thu'; 
+					}
+					else if (days[j]==5) {
+					  	day_n = 'Fri';
+					   			
+					}
+					else{
+					 	day_n = 'Sat';
+					   	
+					}
+						view_table1 +='<th>'+day_n+' '+i+'</th>';
+						view_table2+='<td><select id="atten_status" name="atten_status[]"> '+'<option value="01"> A </option>'+'<option value="02">L</option>'+'<option value="03"> S </option>'+'<option value="04">U</option>'+'</select> </td>'
+
+				}
+				console.log($("select[name='atten_status']").val());
+				
+				$('#table1 thead tr' ).html('<th>'+'Image'+'</th>'+'<th>'+'Registration Number'+'</th>'+'<th>'+'Name'+'</th>'+'<th>'+'Sub Name'+'</th>'+view_table1);
 		    	var cls = $(' #form_control_select_class1').find("option:selected").text();
-		    	 sub = $('#form_control_select_sub').find("option:selected").text();
+		    	var sub = $('#form_control_select_sub').find("option:selected").text();
+		    	var month = $('#form_control_select_month').find("option:selected").text();
+		   		var year = $('#form_control_select_year').find("option:selected").text();
 				var group = $('#form_control_select_group').find("option:selected").text();
 		   		var formData = {
 			        'sclass': cls,
+			        'month': month,
+			       	'year': year,
 			        'group': group,
 			        'sub': sub,
-			        'date': date,
+
 			        '_token': "{{csrf_token()}}",
 			    };
 			    $.ajax({
@@ -47,15 +101,13 @@
 
 				        console.log(data);
 				        var view_table ='';
-				        
 				        $.each(data, function( index, student ) {
 								 
-							view_table +='<tr id="tr"><td>'+'-----'+'</td><td>'+student.id+'</td><td>'+student.fname+' '+student.lname+'</td><td>'+sub+' </td><td>'+'<span>Present</span><input id="radio" value="P" name="status_atten'+name+'" type="radio"> <br><span>Absent</span> <input id="radio" value="A" name="status_atten'+name+'" type="radio"> <br> <span>Late</span><input id="radio" value="L" name="status_atten'+name+'" type="radio"> <br><span>Sick</span> <input id="radio" value="S" name="status_atten'+name+'" type="radio">'+' </td></tr>';
-								name++;
+							view_table +='<tr><td>'+'-----'+'</td><td>'+student.id+'</td><td>'+student.fname+' '+student.lname+'</td><td>'+sub+' </td>'+view_table2+'</tr>';
 								});
 
 						var length = data.length;
-						console.log(view_table);		
+								
 				        $('#table1 tbody ').html(view_table);
 				        $('#table_con').show();
 			            	
@@ -74,34 +126,29 @@
 <script type="text/javascript">
    	$(document).ready(function() {
    		$(document).on('click','#manage_atten',function(){
-   			var atten_status_len = name-1;        
-			var atten_status = [];
-			var studentId = [];
-			var i=1;
-			var texts = $("td").map(function() {
-   			 return $(this).text();
-
-			});
-			var j =0;
-			for(var k = 1; k<=atten_status_len;k++,i+=5,j++){
-				atten_status[j] =$('input[name=status_atten'+k+']:checked').val();
-				studentId[j] =texts[i]; 
-			}
+   			var atten_status =[];
+			         
+			var len = $("select[name='atten_status[]'] option:selected").length;
 			
+			var from_atten = $("select[name='atten_status[]'] option:selected");
+			console.log(len);
+
+		 
+			for(var k = 0; k<len;k++){
+				atten_status[k] =from_atten[k].value;
+			}
+			console.log(atten_status);	
 		   		var formData = {
-		   			'atten_status_len':atten_status_len,
 			        'atten_status': atten_status,
-			        'studentId': studentId,
-			        'sub': sub,
-			        'date':date,
-					'_token': "{{csrf_token()}}",
+			        
+
+			        '_token': "{{csrf_token()}}",
 			    };
-			    console.log(formData);
 			    $.ajax({
 			        type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
 			        url         : 'atten_new_insert', // the url where we want to POST
 			        data        : formData, // our data object
-			        dataType    : 'html', // what type of data do we expect back from the server
+			        dataType    : 'json', // what type of data do we expect back from the server
 			        success: function(data){
 
 				        console.log(data);
@@ -109,7 +156,9 @@
 				     
 			            	
 			    	},
-			        
+			        /*error: function(err){
+
+			        }*/
 
 			    });
 	});
@@ -121,9 +170,11 @@
 
 	function handleSelect() {
 		var class_val = $(' #form_control_select_class1').find("option:selected").val();
-	     if (class_val == '06') {  	
+	     if (class_val == '06') {
+	     	
 	     	document.getElementById('form_control_select_group').disabled = true;
-	        document.getElementById('form_control_select_sub').disabled = false;    
+	        document.getElementById('form_control_select_sub').disabled = false;
+	         
 	     } 
 	     if (class_val == '07') {
 	        document.getElementById('form_control_select_sub').disabled = false;
@@ -135,13 +186,18 @@
 	     }
 	     else if (class_val == '09') {
 	        document.getElementById('form_control_select_group').disabled = false;
-	        document.getElementById('form_control_select_sub').disabled = false;    
+	        document.getElementById('form_control_select_sub').disabled = false;
+	         
 	     }
 	     else if (class_val == '10') {
 	        document.getElementById('form_control_select_group').disabled = false;
-	        document.getElementById('form_control_select_sub').disabled = false;   
+	        document.getElementById('form_control_select_sub').disabled = false;
+	         
 	     }
+	    
+	   
 
+	     
 	 }
 
 </script>
@@ -296,7 +352,10 @@
 					<div class="col-sm-12 col-md-12" id="row_1st_col" style="">
 							<form class="form-horizontal fixed" id="form-horizontal" method="post" action="#">
 								<!-- {{csrf_field()}} -->
-	
+								
+							    
+
+
 							    <div class="select_class1">
 							    
 							    	<div class="select_class_select1">
@@ -313,6 +372,43 @@
 
 							    	</div>
 
+							    	<div class="select_month_select">
+							    		<select class="form-control" id="form_control_select_month">
+							    			<option disabled="true" selected="selected" >Select Month
+							    			</option>
+							    			<option value="1" >January</option>
+							    			<option value="2">February</option>
+							    			<option value="3">March</option>
+							    			<option value="4">April</option>
+							    			<option value="5">May</option>
+							    			<option value="6">June</option>
+							    			<option value="7">July</option>
+							    			<option value="8">August</option>
+							    			<option value="9">September</option>
+							    			<option value="10">October</option>
+							    			<option value="11">November</option>
+							    			<option value="12">December</option>
+							    			
+							    		</select>
+							    		
+							    	</div>
+							    	<div class="select_year_select">
+							    		<select class="form-control" id="form_control_select_year">
+							    			<option disabled="true" selected="selected" >Select Year
+							    			</option>
+							    			<option value="2012" >2012</option>
+							    			<option value="2013">2013</option>
+							    			<option value="2014">2014</option>
+							    			<option value="2015">2015</option>
+							    			<option value="2016">2016</option>
+							    			<option value="2017">2017</option>
+							    			<option value="2018">2018</option>
+							    			
+							    			
+							    			
+							    		</select>
+							    		
+							    	</div>
 							    	<div class="select_group_select">
 							    		<select class="form-control" id="form_control_select_group" disabled>
 							    			<option disabled="true selected="selected" >Select Group
@@ -333,30 +429,21 @@
 							    		</select>
 							    		
 							    	</div>
-							    	<div class="select_date_select">
-							    		<input class="form-control" type="date" id="form_control_select_date">
-							    			
-							    	</div>
 							    	<div class="select_btn_select">
 							    		<a href="#" class="btn btn-primary" id="manage_stu">Manage student</a>
 							    		
 							    	</div>
 							    </div>
 								<div class=" " id="c6" style="">
-
-						        <div id="date">
-						        	<h3>
-						        	   
-						        	</h3>
-						        </div>
+								<!-- <div class="pinformation">
+						    	<h1>Personal Information</h1>
+						        </div> -->
+						        
 						    	<div class="container" id="table_con" style="display: none;">
                                                                                        
-									  <div class="table-responsive" id="table_res"> 
-
+									  <div class="table-responsive" id="table_res">          
 									  <table class="table" id="table1" border="2px">
-									  	
 									     <thead>
-
 									      <tr>
 									      
 									      </tr>
@@ -375,14 +462,24 @@
 									</div>
 
 								</div>
-		
+								
+								<!-- education -->
+								
+								
+							
+
+									
+								
+								
+								
 							</form>
 					</div>
 				</div>
+				
 
 				</div>
 			</div>
 		</div>
-
+	
 </body>
 </html>

@@ -608,11 +608,12 @@ label#label_rId{
 }
 
 .select_class1{
-	width: 1033px;
+	   width: 1028px;
     height: 146px;
     border: 2px solid #2e6da4b8;
-    margin-left: -40px;
+    margin-left: -52px;
     margin-top: 81px;
+
 
 }
 .select_class h3{
@@ -633,12 +634,12 @@ label#label_rId{
 }
 .select_class_select1 .form-control{
 	
-	margin-left: 418px;
+	margin-left: 20px;
     width: 18%;
     margin-top: 45px;
 	
 }
-.select_month_select .form-control{
+/*.select_month_select .form-control{
 	
 	margin-left: 18px;
     width: 18%;
@@ -653,10 +654,10 @@ label#label_rId{
 	
 
 	
-}
+}*/
 .select_group_select .form-control{
 	
-    margin-left: 622px;
+    margin-left: 264px;
     width: 18%;
     margin-top: -33px;
 	
@@ -665,7 +666,7 @@ label#label_rId{
 }
 .select_sub_select .form-control{
 	
-	margin-left: 825px;
+	margin-left: 528px;
     width: 18%;
     margin-top: -33px;
 	
@@ -681,6 +682,15 @@ label#label_rId{
     border:0px;
 }
 
+.select_date_select .form-control{
+	
+	margin-left: 786px;
+    width: 18%;
+    margin-top: -33px;
+	
+
+	
+}
 select:hover{
 	cursor: pointer;
 }
@@ -711,7 +721,11 @@ select:hover{
 	
 
 }
-
+#date {
+	 margin-top: 68px;
+    margin-bottom: -40px;
+    text-align: center;
+}
 #table_res{
 	margin-top: 48px;
     margin-left: -55px;
