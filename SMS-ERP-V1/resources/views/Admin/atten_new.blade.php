@@ -102,13 +102,13 @@
 			        url         : 'atten_new_insert', // the url where we want to POST
 			        data        : formData, // our data object
 			        dataType    : 'html', // what type of data do we expect back from the server
-			        success: function(data){
+			        /*success: function(data){
 
 				        console.log(data);
 				        var view_table ='';
 				     
 			            	
-			    	},
+			    	},*/
 			        
 
 			    });

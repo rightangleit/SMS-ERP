@@ -183,17 +183,17 @@ class AdminController extends Controller
     }
 
     public function atten_new_insert(Request $request){
-      
+        
         $atten_status = $request->get('atten_status');
         $studenId = $request->get('studentId');
         $date = $request->get('date');
         $sub = $request->get('sub');
         $atten_status_len=$request->get('atten_status_len');
-        $atten = new stuAtten; 
+        //$atten = new stuAtten; 
 
         //return response()->json($atten);       
          
-        
+       
 
          for ($i=0; $i<$atten_status_len ; $i++) { 
                 $attendance = new stuAtten;

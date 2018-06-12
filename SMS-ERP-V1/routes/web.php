@@ -44,7 +44,7 @@ Route::get('/show_result', function () {
 Route::get('/s', function(){
 		$attendance = new App\stuAtten;
 		$attendance->stu_id =1 ;
-		$attendance->attenStatus ='A' ;
+		$attendance->attenStatus ='L' ;
 		$attendance->cr_name ='MATH' ;
 		$attendance->atten_date ='2018-05-01' ;
 		
